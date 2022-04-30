@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "754062135744",
+    "project_id": "imagetohandwirttentext",
+    "storage_bucket": "imagetohandwirttentext.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:754062135744:android:9cb0180ad4d51f49127825",
+        "android_client_info": {
+          "package_name": "com.example.imagetotext"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "754062135744-3r9a2u3ku70bllj52oj72ts16j89tm32.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.imagetotext",
+            "certificate_hash": "ba2702614ab4d7b1bdee1cafc453e79137a3a668"
+          }
+        },
+        {
+          "client_id": "754062135744-6t0sn8uauki16k0betfq5rdvpf25bbd3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCK1pyjVRU-JVkTybmBW4t411SFcdwLTTQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "754062135744-6t0sn8uauki16k0betfq5rdvpf25bbd3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
