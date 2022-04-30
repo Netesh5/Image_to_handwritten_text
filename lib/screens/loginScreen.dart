@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:imagetotext/firebaseServices/AuthService/auth.dart';
+import 'package:provider/provider.dart';
 
 class loginScreen extends StatefulWidget {
   const loginScreen({Key? key}) : super(key: key);
@@ -11,36 +14,45 @@ class loginScreen extends StatefulWidget {
 class _loginScreenState extends State<loginScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text(
-              "Image to Text",
-              style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold),
+    return ChangeNotifierProvider<Auth>(
+      create: (context) => Auth(),
+      child: Scaffold(
+        body: SafeArea(
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text(
+                  "Image to Text",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(
+                  height: 70,
+                ),
+                Container(
+                  height: 300,
+                  decoration: const BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage('assets/images/logo_white.png'),
+                          fit: BoxFit.cover)),
+                ),
+                const SizedBox(
+                  height: 70,
+                ),
+                Consumer<Auth>(
+                  builder: (context, googleSignIn, child) => TextButton.icon(
+                      onPressed: () {
+                        googleSignIn.googleSignin();
+                      },
+                      icon: const FaIcon(FontAwesomeIcons.google),
+                      label: const Text("continue with google")),
+                )
+              ],
             ),
-            const SizedBox(
-              height: 70,
-            ),
-            Container(
-              height: 300,
-              decoration: const BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage('assets/images/logo_white.png'),
-                      fit: BoxFit.cover)),
-            ),
-            const SizedBox(
-              height: 70,
-            ),
-            TextButton.icon(
-                onPressed: () {},
-                icon: const FaIcon(FontAwesomeIcons.google),
-                label: const Text("continue with google"))
-          ],
+          ),
         ),
       ),
     );
