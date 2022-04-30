@@ -1,4 +1,4 @@
-# imagetotext
+# Image to Handwritten text
 
 A new Flutter project.
 
