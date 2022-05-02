@@ -22,8 +22,11 @@ class _loginScreenState extends State<loginScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                const SizedBox(
+                  height: 70,
+                ),
                 const Text(
-                  "Image to Text",
+                  "Welcome",
                   style: TextStyle(
                       color: Colors.black,
                       fontSize: 30,
@@ -43,12 +46,25 @@ class _loginScreenState extends State<loginScreen> {
                   height: 70,
                 ),
                 Consumer<Auth>(
-                  builder: (context, googleSignIn, child) => TextButton.icon(
-                      onPressed: () {
-                        googleSignIn.googleSignin();
-                      },
-                      icon: const FaIcon(FontAwesomeIcons.google),
-                      label: const Text("continue with google")),
+                  builder: (context, googleSignIn, child) => Container(
+                    width: 250,
+                    decoration: BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: TextButton.icon(
+                        onPressed: () {
+                          googleSignIn.googleSignin();
+                        },
+                        icon: const FaIcon(
+                          FontAwesomeIcons.google,
+                          color: Colors.white,
+                        ),
+                        label: const Text(
+                          "continue with google",
+                          style: TextStyle(color: Colors.white),
+                        )),
+                  ),
                 )
               ],
             ),
