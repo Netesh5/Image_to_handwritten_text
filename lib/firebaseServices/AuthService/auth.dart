@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class Auth with ChangeNotifier {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseAuth auth = FirebaseAuth.instance;
   User? user;
   Future googleSignin() async {
     try {
@@ -18,7 +18,7 @@ class Auth with ChangeNotifier {
         );
         try {
           UserCredential userCredential =
-              await _auth.signInWithCredential(credential);
+              await auth.signInWithCredential(credential);
           user = userCredential.user;
         } catch (e) {
           debugPrint(e.toString());
@@ -34,7 +34,7 @@ class Auth with ChangeNotifier {
 
   void googleSignOut() async {
     try {
-      await _auth.signOut();
+      await auth.signOut();
     } catch (e) {
       debugPrint(e.toString());
     }

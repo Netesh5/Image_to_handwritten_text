@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:imagetotext/firebaseServices/AuthService/auth.dart';
 import 'package:imagetotext/screens/homepage.dart';
@@ -9,11 +10,11 @@ class wrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final user = Provider.of<Auth>(context).user;
-    if (user != null) {
-      return const HomePage();
-    } else {
+    User? user = Provider.of<Auth>(context).user;
+    if (user == null) {
       return const loginScreen();
+    } else {
+      return const HomePage();
     }
   }
 }
