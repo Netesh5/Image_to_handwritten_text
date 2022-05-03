@@ -16,14 +16,20 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<Auth>(
-      create: (context) => Auth(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<Auth>(create: (context) => Auth()),
+        StreamProvider(
+            create: (context) =>
+                Provider.of<Auth>(context, listen: false).authState,
+            initialData: null),
+      ],
       child: MaterialApp(
         theme: ThemeData(
           fontFamily: "ubuntu",
         ),
         debugShowCheckedModeBanner: false,
-        home: wrapper(),
+        home: const wrapper(),
       ),
     );
   }

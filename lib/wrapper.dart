@@ -10,7 +10,7 @@ class wrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    User? user = Provider.of<Auth>(context).user;
+    final user = Provider.of<Auth>(context, listen: false).user;
     if (user == null) {
       return const loginScreen();
     } else {
