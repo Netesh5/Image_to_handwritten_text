@@ -1,13 +1,14 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:imagetotext/screens/loginScreen.dart';
 
 class Auth with ChangeNotifier {
   final FirebaseAuth auth = FirebaseAuth.instance;
-  User? user;
 
-  Stream<User?> get authState => auth.authStateChanges(); //for state change
+  User? user;
+  Stream<User?> get authState {
+    return auth.authStateChanges();
+  } //for state change
 
   Future googleSignin() async {
     try {
@@ -38,9 +39,7 @@ class Auth with ChangeNotifier {
 
   Future<void> googleSignOut(context) async {
     try {
-      await auth.signOut();
-      // Navigator.pushReplacement(
-      //context, MaterialPageRoute(builder: ((context) => loginScreen())));
+      return await auth.signOut();
     } catch (e) {
       debugPrint(e.toString());
     }

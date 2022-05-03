@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:imagetotext/firebaseServices/AuthService/auth.dart';
@@ -19,10 +20,11 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<Auth>(create: (context) => Auth()),
-        StreamProvider(
-            create: (context) =>
-                Provider.of<Auth>(context, listen: false).authState,
-            initialData: null),
+        StreamProvider<User?>.value(
+          catchError: (context, error) => null,
+          value: Auth().authState,
+          initialData: null,
+        ),
       ],
       child: MaterialApp(
         theme: ThemeData(
