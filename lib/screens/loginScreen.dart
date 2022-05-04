@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:imagetotext/constants/loadingIndicator.dart';
 import 'package:imagetotext/firebaseServices/AuthService/auth.dart';
 import 'package:provider/provider.dart';
 
@@ -57,9 +58,13 @@ class _loginScreenState extends State<loginScreen> {
                         FontAwesomeIcons.google,
                         color: Colors.white,
                       ),
-                      label: const Text(
-                        "continue with google",
-                        style: TextStyle(color: Colors.white),
+                      label: Consumer<loading>(
+                        builder: (context, value, child) => value.isLoading
+                            ? value.loadingIndicator(context)
+                            : const Text(
+                                "continue with google",
+                                style: TextStyle(color: Colors.white),
+                              ),
                       )),
                 ),
               )

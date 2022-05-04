@@ -7,4 +7,9 @@ class loading with ChangeNotifier {
       color: Colors.white,
     );
   }
+
+  void isloading() {
+    isLoading = true;
+    notifyListeners();
+  }
 }
