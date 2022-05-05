@@ -8,6 +8,7 @@ Widget drawer(context) {
   Auth auth = Auth();
   final user = Provider.of<User>(context, listen: false);
   return Drawer(
+    backgroundColor: Theme.of(context).backgroundColor,
     child: SafeArea(
       child: Column(children: [
         Container(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:imagetotext/provider/themeProvider.dart';
 import 'package:imagetotext/widgets/drawer.dart';
 
 class HomePage extends StatefulWidget {
@@ -13,7 +14,14 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Homepage"),
+        iconTheme: Theme.of(context).iconTheme,
+        backgroundColor: Theme.of(context).backgroundColor,
+        // ignore: deprecated_member_use
+        title: const Text(
+          "Homepage",
+        ),
+        toolbarTextStyle: Theme.of(context).textTheme.bodyText2,
+        titleTextStyle: Theme.of(context).textTheme.headline6,
       ),
       drawer: drawer(context),
     );

@@ -31,9 +31,9 @@ class MyApp extends StatelessWidget {
           initialData: null,
         ),
       ],
-      child: MaterialApp(
+      builder: (context, child) => MaterialApp(
         darkTheme: themeProvider.darktheme,
-        themeMode: Provider.of<themeProvider>(context).currentTheme,
+        themeMode: context.watch<themeProvider>().currentTheme,
         theme: themeProvider.lightTheme,
         debugShowCheckedModeBanner: false,
         home: const wrapper(),
