@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:imagetotext/constants/loadingIndicator.dart';
 import 'package:imagetotext/firebaseServices/AuthService/auth.dart';
+import 'package:imagetotext/provider/themeProvider.dart';
 import 'package:imagetotext/wrapper.dart';
 import 'package:provider/provider.dart';
 
@@ -22,6 +23,8 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider<Auth>(create: (context) => Auth()),
         ChangeNotifierProvider<loading>(create: (context) => loading()),
+        ChangeNotifierProvider<themeProvider>(
+            create: (context) => themeProvider()),
         StreamProvider<User?>.value(
           catchError: (context, error) => null,
           value: Auth().authState,
@@ -29,9 +32,9 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        theme: ThemeData(
-          fontFamily: "ubuntu",
-        ),
+        darkTheme: themeProvider.darktheme,
+        themeMode: Provider.of<themeProvider>(context).currentTheme,
+        theme: themeProvider.lightTheme,
         debugShowCheckedModeBanner: false,
         home: const wrapper(),
       ),

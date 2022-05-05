@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:imagetotext/firebaseServices/AuthService/auth.dart';
+import 'package:imagetotext/provider/themeProvider.dart';
 import 'package:provider/provider.dart';
 
 Widget drawer(context) {
@@ -48,6 +49,17 @@ Widget drawer(context) {
         const ListTile(
           leading: Icon(Icons.contact_phone),
           title: Text("Contact us"),
+        ),
+        GestureDetector(
+          onTap: () {
+            Provider.of<themeProvider>(context, listen: false).toogleTheme();
+          },
+          child: ListTile(
+            leading: themeProvider.isDarkThemeEnable
+                ? const Icon(Icons.dark_mode)
+                : const Icon(Icons.light_mode),
+            title: const Text("Theme"),
+          ),
         ),
         Consumer<Auth>(
           builder: (context, googleSignout, child) => GestureDetector(
