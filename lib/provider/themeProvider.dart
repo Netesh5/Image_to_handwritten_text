@@ -18,9 +18,13 @@ class themeProvider with ChangeNotifier {
         scaffoldBackgroundColor: darkcolor,
         fontFamily: "ubuntu",
         iconTheme: const IconThemeData(color: Colors.white),
+        listTileTheme: const ListTileThemeData(iconColor: Colors.white),
         textTheme: const TextTheme(
             headline1: TextStyle(color: Colors.white),
             headline6: TextStyle(color: Colors.white),
+            bodyText2: TextStyle(color: Colors.white),
+            bodyText1:
+                TextStyle(color: Colors.white), //font size of drawer item
             subtitle1: TextStyle(color: Colors.white),
             subtitle2: TextStyle(color: Colors.white)));
   }
@@ -31,10 +35,13 @@ class themeProvider with ChangeNotifier {
         backgroundColor: Colors.white,
         scaffoldBackgroundColor: Colors.white,
         iconTheme: const IconThemeData(color: Colors.black),
+        listTileTheme: const ListTileThemeData(iconColor: Colors.black),
         fontFamily: "ubuntu",
         textTheme: const TextTheme(
             headline1: TextStyle(color: Colors.black),
             headline6: TextStyle(color: Colors.black),
+            bodyText1:
+                TextStyle(color: Colors.black), //font size of drawer item
             subtitle1: TextStyle(color: Colors.black),
             subtitle2: TextStyle(color: Colors.black)));
   }
