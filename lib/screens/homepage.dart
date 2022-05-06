@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:imagetotext/provider/themeProvider.dart';
 import 'package:imagetotext/widgets/drawer.dart';
 
 class HomePage extends StatefulWidget {
@@ -16,7 +15,6 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         iconTheme: Theme.of(context).iconTheme,
         backgroundColor: Theme.of(context).backgroundColor,
-        // ignore: deprecated_member_use
         title: const Text(
           "Homepage",
         ),
@@ -24,6 +22,30 @@ class _HomePageState extends State<HomePage> {
         titleTextStyle: Theme.of(context).textTheme.headline6,
       ),
       drawer: drawer(context),
+      body: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 20,
+            ),
+            Container(
+              height: 500,
+              width: MediaQuery.of(context).size.width,
+              child: const Icon(
+                Icons.image,
+                size: 80,
+                color: Colors.white,
+              ),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10), color: Colors.black),
+            ),
+            const SizedBox(
+              height: 20,
+            )
+          ],
+        ),
+      ),
     );
   }
 }
