@@ -32,13 +32,10 @@ class _HomePageState extends State<HomePage> {
             Container(
               height: 500,
               width: MediaQuery.of(context).size.width,
-              child: const Icon(
-                Icons.image,
-                size: 80,
-                color: Colors.white,
-              ),
+              child: Icon(Icons.image,
+                  size: 80, color: Theme.of(context).primaryColor),
               decoration: BoxDecoration(
-                color: Colors.black,
+                color: Theme.of(context).colorScheme.secondary,
                 borderRadius: BorderRadius.circular(10),
               ),
             ),
@@ -63,7 +60,10 @@ class _HomePageState extends State<HomePage> {
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {},
-        label: const Text("Scan text"),
+        label: const Text(
+          "Scan text",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
         elevation: 1,
       ),
     );

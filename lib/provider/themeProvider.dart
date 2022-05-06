@@ -25,23 +25,21 @@ class themeProvider with ChangeNotifier {
             headline1: TextStyle(color: Colors.white),
             headline6: TextStyle(color: Colors.white),
             bodyText2: TextStyle(color: Colors.white),
-            bodyText1: TextStyle(color: Colors.white),
-
-//font size of drawer item
-
+            bodyText1:
+                TextStyle(color: Colors.white), //font size of drawer item
             subtitle1: TextStyle(color: Colors.white),
             subtitle2: TextStyle(color: Colors.white)));
   }
 
   static ThemeData get lightTheme {
+    Color darkcolor = const Color(0xff121212);
     return ThemeData(
         primaryColor: Colors.white,
         backgroundColor: Colors.white,
         scaffoldBackgroundColor: Colors.white,
-        colorScheme: const ColorScheme.light(
-          primaryContainer: Colors.black,
-          primary: Colors.black, //button color
-          secondary: Colors.black, //button background color
+        colorScheme: ColorScheme.light(
+          primary: darkcolor, //button color
+          secondary: darkcolor, //button background color
           onSecondary: Colors.white, //for text color inside button
         ),
         iconTheme: const IconThemeData(color: Colors.black),
