@@ -16,7 +16,7 @@ class _HomePageState extends State<HomePage> {
         iconTheme: Theme.of(context).iconTheme,
         backgroundColor: Theme.of(context).backgroundColor,
         title: const Text(
-          "Homepage",
+          "Image to Text",
         ),
         toolbarTextStyle: Theme.of(context).textTheme.bodyText2,
         titleTextStyle: Theme.of(context).textTheme.headline6,
@@ -38,13 +38,33 @@ class _HomePageState extends State<HomePage> {
                 color: Colors.white,
               ),
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10), color: Colors.black),
+                color: Colors.black,
+                borderRadius: BorderRadius.circular(10),
+              ),
             ),
             const SizedBox(
               height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                TextButton.icon(
+                    onPressed: () {},
+                    icon: const Icon(Icons.camera_alt_rounded),
+                    label: const Text("Camera")),
+                TextButton.icon(
+                    onPressed: () {},
+                    icon: const Icon(Icons.photo),
+                    label: const Text("Gallary")),
+              ],
             )
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {},
+        label: const Text("Scan text"),
+        elevation: 1,
       ),
     );
   }
