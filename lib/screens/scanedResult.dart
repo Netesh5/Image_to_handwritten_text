@@ -43,7 +43,9 @@ class scanedResult extends StatelessWidget {
               },
               child: const ListTile(
                 leading: Icon(Icons.settings),
-                title: Text("Setting"),
+                title: Text(
+                  "Setting",
+                ),
                 trailing: Icon(Icons.arrow_forward_ios_rounded),
               ),
             )

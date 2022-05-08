@@ -23,10 +23,9 @@ bottomSheet(context) {
                       child: Text(
                         "Setting",
                         style: TextStyle(
-                            fontSize: Theme.of(context)
-                                .textTheme
-                                .headline6!
-                                .fontSize),
+                            fontSize:
+                                Theme.of(context).textTheme.headline6!.fontSize,
+                            fontWeight: FontWeight.bold),
                       ),
                     ),
                     leading: GestureDetector(

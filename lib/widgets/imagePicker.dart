@@ -11,6 +11,7 @@ class Imagepicker with ChangeNotifier {
       file = await ImagePicker().pickImage(source: ImageSource.gallery);
       if (file != null) {
         imagePath = file!.path;
+        debugPrint(imagePath);
       } else {
         return;
       }
@@ -31,7 +32,6 @@ class Imagepicker with ChangeNotifier {
     } on PlatformException catch (e) {
       errorSnackbar(context, e.toString());
     }
-    notifyListeners();
     notifyListeners();
   }
 }
