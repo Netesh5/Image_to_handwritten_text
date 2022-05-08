@@ -16,6 +16,7 @@ class themeProvider with ChangeNotifier {
         primaryColor: darkcolor,
         backgroundColor: darkcolor,
         scaffoldBackgroundColor: darkcolor,
+        cardColor: Colors.black.withOpacity(1),
         fontFamily: "ubuntu",
         colorScheme: const ColorScheme.light(
             primary: Colors.white, secondary: Colors.white),
@@ -53,8 +54,8 @@ class themeProvider with ChangeNotifier {
             headline4: TextStyle(color: Colors.black),
             headline5: TextStyle(color: Colors.black),
             headline6: TextStyle(color: Colors.black),
-            bodyText1:
-                TextStyle(color: Colors.black), //font size of drawer item
+            bodyText1: TextStyle(
+                color: Colors.black), //font size of drawer item list tile
             subtitle1: TextStyle(color: Colors.black),
             subtitle2: TextStyle(color: Colors.black)));
   }

@@ -25,9 +25,10 @@ class scanedResult extends StatelessWidget {
         padding: const EdgeInsets.all(10.0),
         child: Column(
           children: [
-            SizedBox(
+            Container(
               height: MediaQuery.of(context).size.height * 0.60,
               width: MediaQuery.of(context).size.width,
+              decoration: BoxDecoration(color: Theme.of(context).cardColor),
               child: TextFormField(
                 maxLines: null,
                 expands: true,

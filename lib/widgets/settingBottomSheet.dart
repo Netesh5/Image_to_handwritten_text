@@ -3,25 +3,42 @@ import 'package:flutter/material.dart';
 bottomSheet(context) {
   return showModalBottomSheet(
       context: context,
+      backgroundColor: Theme.of(context).backgroundColor,
       isScrollControlled: true,
-      builder: (context) => Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Container(
-              height: MediaQuery.of(context).size.height * 0.9,
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(20.0),
-                  topRight: Radius.circular(20.0),
+      builder: (context) => Container(
+            height: MediaQuery.of(context).size.height * 0.95,
+            decoration: BoxDecoration(
+              color: Theme.of(context).backgroundColor,
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(20.0),
+                topRight: Radius.circular(20.0),
+              ),
+            ),
+            child: Column(
+              children: [
+                ListTile(
+                  title: Center(
+                    child: Text(
+                      "Setting",
+                      style: TextStyle(
+                          fontSize:
+                              Theme.of(context).textTheme.headline6!.fontSize),
+                    ),
+                  ),
+                  leading: GestureDetector(
+                    child: const Icon(Icons.close),
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                  trailing: GestureDetector(
+                    child: const Icon(Icons.done),
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                  ),
                 ),
-              ),
-              child: Column(
-                children: [
-                  ListTile(
-                    title: Text(""),
-                  )
-                ],
-              ),
+              ],
             ),
           ));
 }
