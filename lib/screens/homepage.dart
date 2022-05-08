@@ -1,6 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:imagetotext/screens/scanedResult.dart';
 import 'package:imagetotext/widgets/drawer.dart';
+import 'package:imagetotext/widgets/imagePicker.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -30,14 +34,21 @@ class _HomePageState extends State<HomePage> {
             const SizedBox(
               height: 20,
             ),
-            Container(
-              height: 500,
-              width: MediaQuery.of(context).size.width,
-              child: Icon(Icons.image,
-                  size: 80, color: Theme.of(context).primaryColor),
-              decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.secondary,
-                borderRadius: BorderRadius.circular(10),
+            Consumer<Imagepicker>(
+              builder: (context, imagepicker, child) => Container(
+                height: 500,
+                width: MediaQuery.of(context).size.width,
+                child: imagepicker.imagePath.isEmpty
+                    ? Icon(Icons.image,
+                        size: 80, color: Theme.of(context).primaryColor)
+                    : Image.file(
+                        File(imagepicker.imagePath),
+                        fit: BoxFit.cover,
+                      ),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.secondary,
+                  borderRadius: BorderRadius.circular(10),
+                ),
               ),
             ),
             const SizedBox(
@@ -47,11 +58,17 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 TextButton.icon(
-                    onPressed: () {},
+                    onPressed: () {
+                      Provider.of<Imagepicker>(context, listen: false)
+                          .imagePickerCamera(context);
+                    },
                     icon: const Icon(Icons.camera_alt_rounded),
                     label: const Text("Camera")),
                 TextButton.icon(
-                    onPressed: () {},
+                    onPressed: () {
+                      Provider.of<Imagepicker>(context, listen: false)
+                          .imagePickerGallay(context);
+                    },
                     icon: const Icon(Icons.photo),
                     label: const Text("Gallary")),
               ],
