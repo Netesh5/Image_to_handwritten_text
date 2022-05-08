@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:imagetotext/screens/scanedResult.dart';
 import 'package:imagetotext/widgets/drawer.dart';
 
 class HomePage extends StatefulWidget {
@@ -59,7 +60,10 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => scanedResult()));
+        },
         label: const Text(
           "Scan text",
           style: TextStyle(fontWeight: FontWeight.bold),
