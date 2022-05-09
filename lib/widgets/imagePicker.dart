@@ -8,7 +8,9 @@ class Imagepicker with ChangeNotifier {
   String imagePath = "";
   Future imagePickerGallay(context) async {
     try {
-      file = await ImagePicker().pickImage(source: ImageSource.gallery);
+      file = await ImagePicker().pickImage(
+        source: ImageSource.gallery,
+      );
       if (file != null) {
         imagePath = file!.path;
         debugPrint(imagePath);
