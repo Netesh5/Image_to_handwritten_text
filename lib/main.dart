@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:imagetotext/constants/loadingIndicator.dart';
 import 'package:imagetotext/firebaseServices/AuthService/auth.dart';
+import 'package:imagetotext/provider/textRecongnization.dart';
 import 'package:imagetotext/provider/themeProvider.dart';
 import 'package:imagetotext/widgets/imagePicker.dart';
 import 'package:imagetotext/wrapper.dart';
@@ -25,6 +26,8 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<Auth>(create: (context) => Auth()),
         ChangeNotifierProvider<loading>(create: (context) => loading()),
         ChangeNotifierProvider<Imagepicker>(create: (context) => Imagepicker()),
+        ChangeNotifierProvider<textProvider>(
+            create: (context) => textProvider()),
         ChangeNotifierProvider<themeProvider>(
             create: (context) => themeProvider()),
         StreamProvider<User?>.value(

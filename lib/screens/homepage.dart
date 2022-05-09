@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:imagetotext/provider/textRecongnization.dart';
 import 'package:imagetotext/screens/scanedResult.dart';
 import 'package:imagetotext/widgets/drawer.dart';
 import 'package:imagetotext/widgets/imagePicker.dart';
@@ -76,16 +77,31 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => scanedResult()));
-        },
-        label: const Text(
-          "Scan text",
-          style: TextStyle(fontWeight: FontWeight.bold),
+      floatingActionButton: Consumer<textProvider>(
+        builder: (context, textrecognizer, child) =>
+            FloatingActionButton.extended(
+          onPressed: () async {
+            final result = await textrecognizer.recoginizeText(
+                Provider.of<Imagepicker>(context, listen: false).imagePath,
+                context);
+            //debugPrint(
+            //Provider.of<Imagepicker>(context, listen: false).imagePath);
+            debugPrint(result);
+            if (result != null) {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => scanedResult(text: result)));
+            } else {
+              return;
+            }
+          },
+          label: const Text(
+            "Scan text",
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          elevation: 1,
         ),
-        elevation: 1,
       ),
     );
   }
