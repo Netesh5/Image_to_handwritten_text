@@ -34,15 +34,31 @@ class _HomePageState extends State<HomePage> {
           children: [
             const SizedBox(
               height: 20,
-              child: Text("Add one or multiple images"),
             ),
             Consumer<Imagepicker>(
               builder: (context, imagepicker, child) => Container(
                 height: 500,
                 width: MediaQuery.of(context).size.width,
                 child: imagepicker.imagePath.isEmpty
-                    ? Icon(Icons.image,
-                        size: 80, color: Theme.of(context).primaryColor)
+                    ? Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Add one or mutiple images",
+                            style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color:
+                                    Theme.of(context).colorScheme.onSecondary),
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Icon(Icons.image,
+                              size: 80, color: Theme.of(context).primaryColor),
+                        ],
+                      )
                     : Image.file(
                         File(imagepicker.imagePath),
                         fit: BoxFit.fill,

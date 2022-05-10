@@ -33,6 +33,7 @@ alertDialog(BuildContext context, String text) {
               pdfGenerator generator = pdfGenerator();
               generator.createPdf(text);
               generator.savePdf(context, name);
+              Navigator.pop(context);
             },
             child: const Text("Save"))
       ],

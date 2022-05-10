@@ -13,7 +13,7 @@ class pdfGenerator {
         pageFormat: PdfPageFormat.a4,
         build: (pw.Context context) {
           return pw.Column(
-            children: [pw.Text(text, style: const pw.TextStyle(fontSize: 20))],
+            children: [pw.Text(text, style: const pw.TextStyle(fontSize: 14))],
           ); // Center
         }));
   }
