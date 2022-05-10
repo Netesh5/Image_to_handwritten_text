@@ -58,20 +58,57 @@ class _HomePageState extends State<HomePage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                TextButton.icon(
-                    onPressed: () {
-                      Provider.of<Imagepicker>(context, listen: false)
-                          .imagePickerCamera(context);
-                    },
-                    icon: const Icon(Icons.camera_alt_rounded),
-                    label: const Text("Camera")),
-                TextButton.icon(
+                Container(
+                  height: 50,
+                  width: 120,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(25),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5), //color of shadow
+                          spreadRadius: 1, //spread radius
+                          blurRadius: 3, // blur radius
+                          offset: Offset(0, 2), // changes position of shadow
+                          //first paramerter of offset is left-right
+                          //second parameter is top to down
+                        ),
+                        //you can set more BoxShadow() here
+                      ],
+                      color: Theme.of(context).backgroundColor),
+                  child: TextButton.icon(
+                      onPressed: () {
+                        Provider.of<Imagepicker>(context, listen: false)
+                            .imagePickerCamera(context);
+                      },
+                      icon: const Icon(Icons.camera_alt_rounded),
+                      label: const Text("Camera")),
+                ),
+                Container(
+                  height: 50,
+                  width: 120,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(25),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5), //color of shadow
+                          spreadRadius: 1, //spread radius
+                          blurRadius: 3, // blur radius
+                          offset: Offset(0, 2), // changes position of shadow
+                          //first paramerter of offset is left-right
+                          //second parameter is top to down
+                        ),
+                        //you can set more BoxShadow() here
+                      ],
+                      color: Theme.of(context).backgroundColor),
+                  child: TextButton.icon(
                     onPressed: () {
                       Provider.of<Imagepicker>(context, listen: false)
                           .imagePickerGallay(context);
                     },
                     icon: const Icon(Icons.photo),
-                    label: const Text("Gallary")),
+                    label: const Text("Gallery"),
+                  ),
+                ),
               ],
             )
           ],

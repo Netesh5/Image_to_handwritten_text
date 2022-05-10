@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:imagetotext/provider/textRecongnization.dart';
 import 'package:imagetotext/widgets/settingBottomSheet.dart';
+import 'package:provider/provider.dart';
 
 class scanedResult extends StatelessWidget {
   String text;
@@ -13,13 +15,19 @@ class scanedResult extends StatelessWidget {
         iconTheme: Theme.of(context).iconTheme,
         centerTitle: true,
         title: const Text(
-          "Scaned Text",
+          "Scanned Text",
         ),
         titleTextStyle: Theme.of(context).textTheme.headline6,
         toolbarTextStyle: Theme.of(context).textTheme.bodyText2,
         backgroundColor: Theme.of(context).backgroundColor,
         actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.copy)),
+          Consumer<textProvider>(
+            builder: (context, copyToClipboard, child) => IconButton(
+                onPressed: () {
+                  copyToClipboard.copyTOClipBoard(text, context);
+                },
+                icon: const Icon(Icons.copy)),
+          ),
           IconButton(onPressed: () {}, icon: const Icon(Icons.ios_share))
         ],
       ),
@@ -48,7 +56,7 @@ class scanedResult extends StatelessWidget {
                 child: const ListTile(
                   leading: Icon(Icons.settings),
                   title: Text(
-                    "Setting",
+                    "Settings",
                   ),
                   trailing: Icon(Icons.arrow_forward_ios_rounded),
                 ),

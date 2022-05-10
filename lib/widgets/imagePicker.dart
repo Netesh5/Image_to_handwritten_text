@@ -18,7 +18,7 @@ class Imagepicker with ChangeNotifier {
         return;
       }
     } on PlatformException catch (e) {
-      errorSnackbar(context, e.toString());
+      errorSnackbar(context, e.message.toString());
     }
     notifyListeners();
   }
@@ -32,7 +32,7 @@ class Imagepicker with ChangeNotifier {
         return;
       }
     } on PlatformException catch (e) {
-      errorSnackbar(context, e.toString());
+      errorSnackbar(context, e.message.toString());
     }
     notifyListeners();
   }

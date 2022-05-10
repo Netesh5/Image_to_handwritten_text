@@ -1,5 +1,7 @@
 import 'dart:io';
+import 'package:clipboard/clipboard.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_ml_vision/google_ml_vision.dart';
 import 'package:imagetotext/widgets/errorSnackBar.dart';
 
@@ -10,16 +12,16 @@ class textProvider with ChangeNotifier {
     try {
       final visionText = await textRecognizer.processImage(visionImage);
       await textRecognizer.close();
-      final text = extractText(visionText);
+      final text = extractText(visionText, context);
       return text;
-    } catch (e) {
-      errorSnackbar(context, e.toString());
+    } on PlatformException catch (e) {
+      errorSnackbar(context, e.message.toString());
     }
 
     notifyListeners();
   }
 
-  String extractText(VisionText visionText) {
+  String extractText(VisionText visionText, BuildContext context) {
     String text = "";
     for (TextBlock block in visionText.blocks) {
       for (TextLine line in block.lines) {
@@ -30,5 +32,14 @@ class textProvider with ChangeNotifier {
       }
     }
     return text;
+  }
+
+  void copyTOClipBoard(String text, context) {
+    if (text.trim() != "") {
+      FlutterClipboard.copy(text)
+          .then((value) => errorSnackbar(context, "Copied to clipboard"));
+      debugPrint(text);
+    }
+    notifyListeners();
   }
 }
