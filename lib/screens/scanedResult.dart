@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:imagetotext/api/pdfgenerator.dart';
+import 'package:imagetotext/constants/alertdialog.dart';
 import 'package:imagetotext/provider/textRecongnization.dart';
 import 'package:imagetotext/widgets/settingBottomSheet.dart';
 import 'package:provider/provider.dart';
@@ -6,8 +8,8 @@ import 'package:provider/provider.dart';
 class scanedResult extends StatelessWidget {
   String text;
   scanedResult({required this.text});
-
   TextEditingController textEditingController = TextEditingController();
+  // pdfGenerator generator = pdfGenerator();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +30,13 @@ class scanedResult extends StatelessWidget {
                 },
                 icon: const Icon(Icons.copy)),
           ),
-          IconButton(onPressed: () {}, icon: const Icon(Icons.ios_share))
+          IconButton(
+              onPressed: () {
+                alertDialog(context, text);
+                // generator.createPdf(text);
+                // generator.savePdf(context);
+              },
+              icon: const Icon(Icons.picture_as_pdf))
         ],
       ),
       body: SingleChildScrollView(
@@ -37,7 +45,7 @@ class scanedResult extends StatelessWidget {
           child: Column(
             children: [
               Container(
-                height: MediaQuery.of(context).size.height * 0.60,
+                height: MediaQuery.of(context).size.height * 0.70,
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(color: Theme.of(context).cardColor),
                 child: TextFormField(
@@ -50,7 +58,22 @@ class scanedResult extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                height: 20,
+                height: 10,
+              ),
+              GestureDetector(
+                onTap: () {
+                  bottomSheet(context);
+                },
+                child: const ListTile(
+                  leading: Icon(Icons.add_a_photo),
+                  title: Text(
+                    "Add more images",
+                  ),
+                  trailing: Icon(Icons.arrow_forward_ios_rounded),
+                ),
+              ),
+              const SizedBox(
+                height: 5,
               ),
               GestureDetector(
                 onTap: () {
@@ -63,7 +86,7 @@ class scanedResult extends StatelessWidget {
                   ),
                   trailing: Icon(Icons.arrow_forward_ios_rounded),
                 ),
-              )
+              ),
             ],
           ),
         ),
