@@ -34,6 +34,7 @@ class _HomePageState extends State<HomePage> {
           children: [
             const SizedBox(
               height: 20,
+              child: Text("Add one or multiple images"),
             ),
             Consumer<Imagepicker>(
               builder: (context, imagepicker, child) => Container(
@@ -44,7 +45,7 @@ class _HomePageState extends State<HomePage> {
                         size: 80, color: Theme.of(context).primaryColor)
                     : Image.file(
                         File(imagepicker.imagePath),
-                        fit: BoxFit.cover,
+                        fit: BoxFit.fill,
                       ),
                 decoration: BoxDecoration(
                   color: Theme.of(context).colorScheme.secondary,

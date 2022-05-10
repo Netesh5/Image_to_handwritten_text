@@ -34,9 +34,9 @@ class textProvider with ChangeNotifier {
     return text;
   }
 
-  void copyTOClipBoard(String text, context) {
+  void copyTOClipBoard(String text, context) async {
     if (text.trim() != "") {
-      FlutterClipboard.copy(text)
+      await FlutterClipboard.copy(text)
           .then((value) => errorSnackbar(context, "Copied to clipboard"));
       debugPrint(text);
     }

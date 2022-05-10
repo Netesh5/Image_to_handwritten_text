@@ -12,8 +12,8 @@ class pdfGenerator {
     pdf.addPage(pw.Page(
         pageFormat: PdfPageFormat.a4,
         build: (pw.Context context) {
-          return pw.Center(
-            child: pw.Text(text),
+          return pw.Column(
+            children: [pw.Text(text, style: const pw.TextStyle(fontSize: 20))],
           ); // Center
         }));
   }

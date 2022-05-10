@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:imagetotext/api/pdfgenerator.dart';
 import 'package:imagetotext/constants/alertdialog.dart';
 import 'package:imagetotext/provider/textRecongnization.dart';
+import 'package:imagetotext/screens/homepage.dart';
+import 'package:imagetotext/widgets/imagePicker.dart';
 import 'package:imagetotext/widgets/settingBottomSheet.dart';
 import 'package:provider/provider.dart';
 
@@ -61,9 +63,7 @@ class scanedResult extends StatelessWidget {
                 height: 10,
               ),
               GestureDetector(
-                onTap: () {
-                  bottomSheet(context);
-                },
+                onTap: () {},
                 child: const ListTile(
                   leading: Icon(Icons.add_a_photo),
                   title: Text(

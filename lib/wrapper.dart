@@ -13,8 +13,9 @@ class wrapper extends StatelessWidget {
     final user = Provider.of<User?>(context);
     if (user == null) {
       return const loginScreen();
+      //return scanedResult(text: "My name is Nitesh Paudel");
     } else {
-      return scanedResult(text: "My name is Nitesh Paudel");
+      return HomePage();
     }
   }
 }
