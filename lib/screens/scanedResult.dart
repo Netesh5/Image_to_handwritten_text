@@ -44,6 +44,9 @@ class scanedResult extends StatelessWidget {
                   initialValue: text,
                   maxLines: null,
                   expands: true,
+                  onChanged: (value) {
+                    text = value;
+                  },
                 ),
               ),
               const SizedBox(

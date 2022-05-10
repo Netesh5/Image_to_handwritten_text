@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:imagetotext/screens/homepage.dart';
 import 'package:imagetotext/screens/loginScreen.dart';
+import 'package:imagetotext/screens/scanedResult.dart';
 import 'package:provider/provider.dart';
 
 class wrapper extends StatelessWidget {
@@ -13,7 +14,7 @@ class wrapper extends StatelessWidget {
     if (user == null) {
       return const loginScreen();
     } else {
-      return const HomePage();
+      return scanedResult(text: "My name is Nitesh Paudel");
     }
   }
 }
