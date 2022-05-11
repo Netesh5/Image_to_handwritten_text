@@ -13,14 +13,28 @@ class pdfGenerator {
   createPdf(String text) async {
     final font = await rootBundle.load("assets/fonts/QERuthStafford.ttf");
     final ttf = pw.Font.ttf(font);
-    pdf.addPage(pw.Page(
+
+    //final bgPage = await rootBundle.loadString("assets/images/bgpage.svg");
+    final ByteData bytes = await rootBundle.load('assets/images/page.jpg');
+    final Uint8List byteList = bytes.buffer.asUint8List();
+    final image = pw.MemoryImage(byteList);
+
+//to create backgroundImages
+    final pagetheme = pw.PageTheme(
         pageFormat: PdfPageFormat.a4,
+        buildBackground: (pw.Context context) {
+          return pw.FullPage(
+            ignoreMargins: true,
+            child: pw.Image(image),
+          );
+        });
+
+    pdf.addPage(pw.Page(
+        pageTheme: pagetheme,
         build: (pw.Context context) {
-          return pw.Column(
-            children: [
-              pw.Text(text, style: pw.TextStyle(fontSize: 14, font: ttf))
-            ],
-          ); // Center
+          return pw.Column(children: [
+            pw.Text(text, style: pw.TextStyle(fontSize: 14, font: ttf))
+          ]);
         }));
   }
 

@@ -29,10 +29,10 @@ alertDialog(BuildContext context, String text) {
             },
             child: const Text("Cancel")),
         TextButton(
-            onPressed: () {
+            onPressed: () async {
               pdfGenerator generator = pdfGenerator();
-              generator.createPdf(text);
-              generator.savePdf(context, name);
+              await generator.createPdf(text);
+              await generator.savePdf(context, name);
               Navigator.pop(context);
             },
             child: const Text("Save"))
