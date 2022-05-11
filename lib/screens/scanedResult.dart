@@ -49,10 +49,16 @@ class scanedResult extends StatelessWidget {
               Container(
                 height: MediaQuery.of(context).size.height * 0.70,
                 width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(color: Theme.of(context).cardColor),
+                decoration: const BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage("assets/images/page.jpg"),
+                        fit: BoxFit.cover)),
                 child: TextFormField(
+                  cursorColor: Theme.of(context).backgroundColor,
                   style: const TextStyle(
-                      fontFamily: 'QERuthStafford', fontSize: 20),
+                      fontFamily: 'QERuthStafford',
+                      fontSize: 20,
+                      color: Colors.black),
                   initialValue: text,
                   maxLines: null,
                   expands: true,

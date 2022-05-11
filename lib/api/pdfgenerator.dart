@@ -25,16 +25,18 @@ class pdfGenerator {
         buildBackground: (pw.Context context) {
           return pw.FullPage(
             ignoreMargins: true,
-            child: pw.Image(image),
+            child: pw.Image(image, fit: pw.BoxFit.cover),
           );
         });
 
     pdf.addPage(pw.Page(
         pageTheme: pagetheme,
         build: (pw.Context context) {
-          return pw.Column(children: [
-            pw.Text(text, style: pw.TextStyle(fontSize: 14, font: ttf))
-          ]);
+          return pw.Padding(
+              padding: const pw.EdgeInsets.only(left: 20, top: 7),
+              child: pw.Column(children: [
+                pw.Text(text, style: pw.TextStyle(fontSize: 20, font: ttf))
+              ]));
         }));
   }
 
