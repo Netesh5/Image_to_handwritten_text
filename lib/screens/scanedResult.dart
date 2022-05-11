@@ -5,6 +5,7 @@ import 'package:imagetotext/provider/textRecongnization.dart';
 import 'package:imagetotext/screens/homepage.dart';
 import 'package:imagetotext/widgets/imagePicker.dart';
 import 'package:imagetotext/widgets/settingBottomSheet.dart';
+import 'package:pdf/widgets.dart' as pw;
 import 'package:provider/provider.dart';
 
 class scanedResult extends StatelessWidget {
@@ -53,18 +54,29 @@ class scanedResult extends StatelessWidget {
                     image: DecorationImage(
                         image: AssetImage("assets/images/page.jpg"),
                         fit: BoxFit.cover)),
-                child: TextFormField(
-                  cursorColor: Theme.of(context).backgroundColor,
-                  style: const TextStyle(
-                      fontFamily: 'QERuthStafford',
-                      fontSize: 20,
-                      color: Colors.black),
-                  initialValue: text,
-                  maxLines: null,
-                  expands: true,
-                  onChanged: (value) {
-                    text = value;
-                  },
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 45, top: 30),
+                  // child: Text(
+                  //   text,
+                  //   style: const TextStyle(
+                  //       fontFamily: 'QERuthStafford',
+                  //       fontSize: 16,
+                  //       color: Colors.black),
+                  // ),
+                  child: TextFormField(
+                    cursorColor: Theme.of(context).backgroundColor,
+                    style: const TextStyle(
+                        height: 0.9,
+                        fontFamily: 'QERuthStafford',
+                        fontSize: 20,
+                        color: Colors.black),
+                    initialValue: text,
+                    maxLines: null,
+                    expands: true,
+                    onChanged: (value) {
+                      text = value;
+                    },
+                  ),
                 ),
               ),
               const SizedBox(
