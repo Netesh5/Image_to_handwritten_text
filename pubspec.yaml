@@ -67,10 +67,39 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  fonts:
+    - family: QEAntonyLark
+      fonts:
+        - asset: assets/fonts/QEAntonyLark.ttf 
+    - family: QEBEV
+      fonts:
+        - asset: assets/fonts/QEBEV.ttf  
+    - family: QEBradenHill
+      fonts:
+        - asset: assets/fonts/QEBradenHill.ttf  
+    - family: QEDavidReidCAP
+      fonts:
+        - asset: assets/fonts/QEDavidReidCAP.ttf 
+    - family: QEKevinShirley
+      fonts:
+        - asset: assets/fonts/QEKevinShirley.ttf  
+    - family: QEKunjarScript
+      fonts:
+        - asset: assets/fonts/QEKunjarScript.ttf 
+    - family: QEPrintVersion
+      fonts:
+        - asset: assets/fonts/QEPrintVersion.ttf
+    - family: QERuthStafford
+      fonts:
+        - asset: assets/fonts/QERuthStafford.ttf 
+    - family: QEVRead
+      fonts:
+        - asset: assets/fonts/QEVRead.ttf  
 
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
+  
     
 
   # An image asset can refer to one or more resolution-specific "variants", see

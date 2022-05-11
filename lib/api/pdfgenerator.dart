@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:imagetotext/widgets/errorSnackBar.dart';
@@ -8,12 +9,17 @@ import 'package:pdf/widgets.dart' as pw;
 
 class pdfGenerator {
   final pdf = pw.Document();
-  createPdf(String text) {
+
+  createPdf(String text) async {
+    final font = await rootBundle.load("assets/fonts/QERuthStafford.ttf");
+    final ttf = pw.Font.ttf(font);
     pdf.addPage(pw.Page(
         pageFormat: PdfPageFormat.a4,
         build: (pw.Context context) {
           return pw.Column(
-            children: [pw.Text(text, style: const pw.TextStyle(fontSize: 14))],
+            children: [
+              pw.Text(text, style: pw.TextStyle(fontSize: 14, font: ttf))
+            ],
           ); // Center
         }));
   }
