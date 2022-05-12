@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:imagetotext/api/pdfgenerator.dart';
+
 import 'package:imagetotext/constants/alertdialog.dart';
 import 'package:imagetotext/provider/textRecongnization.dart';
-import 'package:imagetotext/screens/homepage.dart';
-import 'package:imagetotext/widgets/imagePicker.dart';
+
 import 'package:imagetotext/widgets/settingBottomSheet.dart';
-import 'package:pdf/widgets.dart' as pw;
+
 import 'package:provider/provider.dart';
 
 class scanedResult extends StatelessWidget {
@@ -47,35 +46,33 @@ class scanedResult extends StatelessWidget {
           padding: const EdgeInsets.all(10.0),
           child: Column(
             children: [
-              Container(
-                height: MediaQuery.of(context).size.height * 0.70,
-                width: MediaQuery.of(context).size.width,
-                decoration: const BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage("assets/images/page.jpg"),
-                        fit: BoxFit.cover)),
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 45, top: 30),
-                  // child: Text(
-                  //   text,
-                  //   style: const TextStyle(
-                  //       fontFamily: 'QERuthStafford',
-                  //       fontSize: 16,
-                  //       color: Colors.black),
-                  // ),
-                  child: TextFormField(
-                    cursorColor: Theme.of(context).backgroundColor,
-                    style: const TextStyle(
-                        height: 0.9,
-                        fontFamily: 'QERuthStafford',
-                        fontSize: 20,
-                        color: Colors.black),
-                    initialValue: text,
-                    maxLines: null,
-                    expands: true,
-                    onChanged: (value) {
-                      text = value;
-                    },
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Container(
+                  height: MediaQuery.of(context).size.height * 0.7,
+                  width: MediaQuery.of(context).size.width,
+                  decoration: const BoxDecoration(
+                      image: DecorationImage(
+                    image: AssetImage("assets/images/page.jpg"),
+                    fit: BoxFit.cover,
+                  )),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 45, top: 30),
+                    child: TextFormField(
+                      cursorHeight: 0.1,
+                      cursorColor: Colors.black,
+                      style: const TextStyle(
+                          height: 0.9,
+                          fontFamily: 'QERuthStafford',
+                          fontSize: 20,
+                          color: Colors.black),
+                      initialValue: text,
+                      maxLines: null,
+                      expands: true,
+                      onChanged: (value) {
+                        text = value;
+                      },
+                    ),
                   ),
                 ),
               ),

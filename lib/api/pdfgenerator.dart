@@ -21,7 +21,7 @@ class pdfGenerator {
 
 //to create backgroundImages
     final pagetheme = pw.PageTheme(
-        pageFormat: PdfPageFormat.a4,
+        pageFormat: PdfPageFormat.letter,
         buildBackground: (pw.Context context) {
           return pw.FullPage(
             ignoreMargins: true,
@@ -33,10 +33,9 @@ class pdfGenerator {
         pageTheme: pagetheme,
         build: (pw.Context context) {
           return pw.Padding(
-              padding: const pw.EdgeInsets.only(left: 20, top: 7),
-              child: pw.Column(children: [
-                pw.Text(text, style: pw.TextStyle(fontSize: 20, font: ttf))
-              ]));
+              padding: const pw.EdgeInsets.only(left: 20, top: -10),
+              child: pw.Text(text,
+                  style: pw.TextStyle(fontSize: 20, font: ttf, height: 0.9)));
         }));
   }
 
