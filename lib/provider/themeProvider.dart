@@ -16,10 +16,15 @@ class themeProvider with ChangeNotifier {
         primaryColor: darkcolor,
         backgroundColor: darkcolor,
         scaffoldBackgroundColor: darkcolor,
+        navigationBarTheme: NavigationBarThemeData(
+          indicatorColor: Colors.transparent,
+        ),
         cardColor: Colors.black.withOpacity(1),
         fontFamily: "ubuntu",
         colorScheme: const ColorScheme.light(
-            primary: Colors.white, secondary: Colors.white),
+            primary: Colors.white,
+            secondary: Colors.white,
+            onPrimary: Colors.white),
         iconTheme: const IconThemeData(color: Colors.white),
         listTileTheme: const ListTileThemeData(iconColor: Colors.white),
         textTheme: const TextTheme(

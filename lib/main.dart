@@ -5,6 +5,7 @@ import 'package:imagetotext/constants/loadingIndicator.dart';
 import 'package:imagetotext/firebaseServices/AuthService/auth.dart';
 import 'package:imagetotext/provider/textRecongnization.dart';
 import 'package:imagetotext/provider/themeProvider.dart';
+import 'package:imagetotext/widgets/bottomNavbar.dart';
 import 'package:imagetotext/widgets/imagePicker.dart';
 import 'package:imagetotext/wrapper.dart';
 import 'package:provider/provider.dart';
@@ -30,6 +31,8 @@ class MyApp extends StatelessWidget {
             create: (context) => textProvider()),
         ChangeNotifierProvider<themeProvider>(
             create: (context) => themeProvider()),
+        ChangeNotifierProvider<bottomNavBar>(
+            create: (context) => bottomNavBar()),
         StreamProvider<User?>.value(
           catchError: (context, error) => null,
           value: Auth().authState,
