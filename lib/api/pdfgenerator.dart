@@ -35,7 +35,10 @@ class pdfGenerator {
           return pw.Padding(
               padding: const pw.EdgeInsets.only(left: 20, top: -10),
               child: pw.Text(text,
-                  style: pw.TextStyle(fontSize: 20, font: ttf, height: 0.9)));
+                  style: pw.TextStyle(
+                    fontSize: 20,
+                    font: ttf,
+                  )));
         }));
   }
 

@@ -4,6 +4,7 @@ import 'package:imagetotext/constants/alertdialog.dart';
 import 'package:imagetotext/provider/textRecongnization.dart';
 
 import 'package:imagetotext/widgets/settingBottomSheet.dart';
+import 'package:pdf/pdf.dart';
 
 import 'package:provider/provider.dart';
 
@@ -11,6 +12,7 @@ class scanedResult extends StatelessWidget {
   String text;
   scanedResult({required this.text});
   TextEditingController textEditingController = TextEditingController();
+
   // pdfGenerator generator = pdfGenerator();
   @override
   Widget build(BuildContext context) {
@@ -44,70 +46,74 @@ class scanedResult extends StatelessWidget {
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(10.0),
-          child: Column(
-            children: [
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Container(
-                  height: MediaQuery.of(context).size.height * 0.7,
-                  width: MediaQuery.of(context).size.width,
-                  decoration: const BoxDecoration(
-                      image: DecorationImage(
-                    image: AssetImage("assets/images/page.jpg"),
-                    fit: BoxFit.cover,
-                  )),
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 45, top: 30),
-                    child: TextFormField(
-                      cursorHeight: 0.1,
-                      cursorColor: Colors.black,
-                      style: const TextStyle(
-                          height: 0.9,
-                          fontFamily: 'QERuthStafford',
-                          fontSize: 20,
-                          color: Colors.black),
-                      initialValue: text,
-                      maxLines: null,
-                      expands: true,
-                      onChanged: (value) {
-                        text = value;
-                      },
-                    ),
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Container(
+              height: PdfPageFormat.letter.height,
+              width: PdfPageFormat.letter.width,
+              decoration: const BoxDecoration(
+                  image: DecorationImage(
+                image: AssetImage("assets/images/page.jpg"),
+                fit: BoxFit.cover,
+              )),
+              child: Container(
+                margin: const EdgeInsets.only(left: 72, top: 62),
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                    left: 20,
+                  ),
+                  child: TextFormField(
+                    minLines: 1,
+                    cursorHeight: 0.1,
+                    cursorColor: Colors.black,
+                    style: const TextStyle(
+                        fontFamily: 'QERuthStafford',
+                        fontSize: 20,
+                        color: Colors.black),
+                    initialValue: text,
+                    maxLines: 28,
+                    onChanged: (value) {
+                      text = value;
+                    },
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 10,
-              ),
-              GestureDetector(
-                onTap: () {},
-                child: const ListTile(
-                  leading: Icon(Icons.add_a_photo),
-                  title: Text(
-                    "Add more images",
-                  ),
-                  trailing: Icon(Icons.arrow_forward_ios_rounded),
-                ),
-              ),
-              const SizedBox(
-                height: 5,
-              ),
-              GestureDetector(
-                onTap: () {
-                  bottomSheet(context);
-                },
-                child: const ListTile(
-                  leading: Icon(Icons.settings),
-                  title: Text(
-                    "Settings",
-                  ),
-                  trailing: Icon(Icons.arrow_forward_ios_rounded),
-                ),
-              ),
-            ],
+            ),
           ),
         ),
       ),
     );
   }
 }
+
+
+
+// const SizedBox(
+//                 height: 10,
+//               ),
+//               GestureDetector(
+//                 onTap: () {},
+//                 child: const ListTile(
+//                   leading: Icon(Icons.add_a_photo),
+//                   title: Text(
+//                     "Add more images",
+//                   ),
+//                   trailing: Icon(Icons.arrow_forward_ios_rounded),
+//                 ),
+//               ),
+//               const SizedBox(
+//                 height: 5,
+//               ),
+//               GestureDetector(
+//                 onTap: () {
+//                   bottomSheet(context);
+//                 },
+//                 child: const ListTile(
+//                   leading: Icon(Icons.settings),
+//                   title: Text(
+//                     "Settings",
+//                   ),
+//                   trailing: Icon(Icons.arrow_forward_ios_rounded),
+//                 ),
+//               ),
+            
