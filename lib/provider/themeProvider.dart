@@ -16,9 +16,8 @@ class themeProvider with ChangeNotifier {
         primaryColor: darkcolor,
         backgroundColor: darkcolor,
         scaffoldBackgroundColor: darkcolor,
-        navigationBarTheme: NavigationBarThemeData(
-          indicatorColor: Colors.transparent,
-        ),
+        navigationBarTheme:
+            const NavigationBarThemeData(indicatorColor: Colors.transparent),
         cardColor: Colors.black.withOpacity(1),
         fontFamily: "ubuntu",
         colorScheme: const ColorScheme.light(
@@ -48,6 +47,8 @@ class themeProvider with ChangeNotifier {
           secondary: darkcolor, //button background color
           onSecondary: Colors.white, //for text color inside button
         ),
+        navigationBarTheme:
+            const NavigationBarThemeData(indicatorColor: Colors.transparent),
         iconTheme: const IconThemeData(color: Colors.black),
         primaryIconTheme: const IconThemeData(
           color: Colors.black,

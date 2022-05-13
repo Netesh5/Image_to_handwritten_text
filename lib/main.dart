@@ -3,9 +3,11 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:imagetotext/constants/loadingIndicator.dart';
 import 'package:imagetotext/firebaseServices/AuthService/auth.dart';
+import 'package:imagetotext/provider/fontProvider.dart';
 import 'package:imagetotext/provider/textRecongnization.dart';
 import 'package:imagetotext/provider/themeProvider.dart';
 import 'package:imagetotext/widgets/bottomNavbar.dart';
+import 'package:imagetotext/widgets/dropDownMenu.dart';
 import 'package:imagetotext/widgets/imagePicker.dart';
 import 'package:imagetotext/wrapper.dart';
 import 'package:provider/provider.dart';
@@ -33,6 +35,10 @@ class MyApp extends StatelessWidget {
             create: (context) => themeProvider()),
         ChangeNotifierProvider<bottomNavBar>(
             create: (context) => bottomNavBar()),
+        ChangeNotifierProvider<fontProvider>(
+            create: (context) => fontProvider()),
+        ChangeNotifierProvider<dropDownMenu>(
+            create: (context) => dropDownMenu()),
         StreamProvider<User?>.value(
           catchError: (context, error) => null,
           value: Auth().authState,

@@ -5,6 +5,7 @@ class bottomNavBar with ChangeNotifier {
   bottomNavbar(context) {
     int currentIndex = 0;
     return NavigationBar(
+      height: 60,
       selectedIndex: currentIndex,
       backgroundColor: Theme.of(context).backgroundColor,
       destinations: [
@@ -19,15 +20,16 @@ class bottomNavBar with ChangeNotifier {
             ),
             label: "Add more images"),
         NavigationDestination(
-            icon: Icon(
-              Icons.settings_outlined,
-              color: Theme.of(context).iconTheme.color,
-            ),
-            selectedIcon: Icon(
-              Icons.settings,
-              color: Theme.of(context).iconTheme.color,
-            ),
-            label: "Settings"),
+          icon: Icon(
+            Icons.settings_outlined,
+            color: Theme.of(context).iconTheme.color,
+          ),
+          selectedIcon: Icon(
+            Icons.settings,
+            color: Theme.of(context).iconTheme.color,
+          ),
+          label: "Settings",
+        ),
       ],
       onDestinationSelected: (index) {
         currentIndex = index;
