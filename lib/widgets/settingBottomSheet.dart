@@ -49,38 +49,65 @@ bottomSheet(context) {
                 ),
                 Column(
                   children: [
-                    Provider.of<dropDownMenu>(context)
-                        .dropdownButtonFormField(context) // DropdownButton(
-                    //     items: const [
-                    //       DropdownMenuItem(
-                    //         child: Text("font"),
-                    //         value: "font1",
-                    //       ),
-                    //       DropdownMenuItem(
-                    //         child: Text("font"),
-                    //         value: "font2",
-                    //       ),
-                    //       DropdownMenuItem(
-                    //         child: Text("font"),
-                    //         value: "font3",
-                    //       ),
-                    //       DropdownMenuItem(
-                    //         child: Text("font"),
-                    //         value: "font4",
-                    //       ),
-                    //       DropdownMenuItem(
-                    //         child: Text("font"),
-                    //         value: "font5",
-                    //       ),
-                    //       DropdownMenuItem(
-                    //         child: Text("font"),
-                    //         value: "font6",
-                    //       )
-                    //     ],
-                    //     value: currentIndex,
-                    //     onChanged:
-                    //         Provider.of<fontProvider>(context, listen: false)
-                    //             .font(currentIndex))
+                    Container(
+                      decoration: BoxDecoration(
+                          border: Border.all(),
+                          borderRadius: BorderRadius.circular(20)),
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
+                        child: Column(
+                          children: [
+                            const Text(
+                              "Choose font",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 16),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Container(
+                              width: MediaQuery.of(context).size.width * 0.9,
+                              child: Provider.of<dropDownMenu>(context)
+                                  .dropdownButtonFormField(context),
+                              decoration: BoxDecoration(
+                                  border: Border.all(),
+                                  borderRadius: BorderRadius.circular(20)),
+                            )
+                            // DropdownButton(
+                            //     items: const [
+                            //       DropdownMenuItem(
+                            //         child: Text("font"),
+                            //         value: "font1",
+                            //       ),
+                            //       DropdownMenuItem(
+                            //         child: Text("font"),
+                            //         value: "font2",
+                            //       ),
+                            //       DropdownMenuItem(
+                            //         child: Text("font"),
+                            //         value: "font3",
+                            //       ),
+                            //       DropdownMenuItem(
+                            //         child: Text("font"),
+                            //         value: "font4",
+                            //       ),
+                            //       DropdownMenuItem(
+                            //         child: Text("font"),
+                            //         value: "font5",
+                            //       ),
+                            //       DropdownMenuItem(
+                            //         child: Text("font"),
+                            //         value: "font6",
+                            //       )
+                            //     ],
+                            //     value: currentIndex,
+                            //     onChanged:
+                            //         Provider.of<fontProvider>(context, listen: false)
+                            //             .font(currentIndex))
+                          ],
+                        ),
+                      ),
+                    ),
                   ],
                 )
               ],
