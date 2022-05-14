@@ -21,215 +21,252 @@ bottomSheet(context) {
                 topRight: Radius.circular(20.0),
               ),
             ),
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  ListTile(
-                    title: Center(
-                      child: Text(
-                        "Settings",
-                        style: TextStyle(
-                            fontSize: Theme.of(context)
-                                .textTheme
-                                .headline6!
-                                .fontSize),
-                      ),
-                    ),
-                    leading: GestureDetector(
-                      child: const Icon(Icons.close),
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                    ),
-                    trailing: GestureDetector(
+            child: Scaffold(
+              appBar: AppBar(
+                backgroundColor: Theme.of(context).backgroundColor,
+                title: Center(
+                  child: Text(
+                    "Settings",
+                    style: TextStyle(
+                        fontSize:
+                            Theme.of(context).textTheme.headline6!.fontSize),
+                  ),
+                ),
+                leading: GestureDetector(
+                  child: const Icon(Icons.close),
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                ),
+                actions: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: 20.0),
+                    child: GestureDetector(
                       child: const Icon(Icons.done),
                       onTap: () {
                         Navigator.pop(context);
                       },
                     ),
                   ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Column(
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                            border: Border.all(),
-                            borderRadius: BorderRadius.circular(20)),
-                        child: Padding(
-                          padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
-                          child: Column(
-                            children: [
-                              const Text(
-                                "Choose font",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 16),
-                              ),
-                              SizedBox(
-                                height: 20,
-                              ),
-                              Container(
-                                width: MediaQuery.of(context).size.width * 0.9,
-                                child: Provider.of<dropDownMenu>(context)
-                                    .dropdownButtonFormField(context),
-                                decoration: BoxDecoration(
-                                    border: Border.all(),
-                                    borderRadius: BorderRadius.circular(20)),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                            border: Border.all(),
-                            borderRadius: BorderRadius.circular(20)),
-                        child: Padding(
-                          padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
-                          child: Column(
-                            children: [
-                              const Text(
-                                "Font size",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 16),
-                              ),
-                              SizedBox(
-                                height: 20,
-                              ),
-                              Container(
-                                width: MediaQuery.of(context).size.width * 0.9,
-                                child: TextFormField(
-                                  textAlign: TextAlign.center,
-                                  textInputAction: TextInputAction.next,
-                                  initialValue: "20",
-                                  keyboardType: TextInputType.number,
-                                  decoration: const InputDecoration(
-                                      border: InputBorder.none,
-                                      hintText: "      Enter font size"),
-                                ),
-                                decoration: BoxDecoration(
-                                    border: Border.all(),
-                                    borderRadius: BorderRadius.circular(20)),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                            border: Border.all(),
-                            borderRadius: BorderRadius.circular(20)),
-                        child: Padding(
-                          padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
-                          child: Column(
-                            children: [
-                              const Text(
-                                "Height gap",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 16),
-                              ),
-                              SizedBox(
-                                height: 20,
-                              ),
-                              Container(
-                                width: MediaQuery.of(context).size.width * 0.9,
-                                child: Slider(
-                                    min: 0,
-                                    max: 100,
-                                    value: currentValue,
-                                    onChanged: (value) {
-                                      currentValue = value;
-                                    }),
-                                decoration: BoxDecoration(
-                                    border: Border.all(),
-                                    borderRadius: BorderRadius.circular(20)),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                            border: Border.all(),
-                            borderRadius: BorderRadius.circular(20)),
-                        child: Padding(
-                          padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
-                          child: Column(
-                            children: [
-                              const Text(
-                                "Word Spacing",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 16),
-                              ),
-                              const SizedBox(
-                                height: 20,
-                              ),
-                              Container(
-                                width: MediaQuery.of(context).size.width * 0.9,
-                                child: Slider(
-                                    min: 0,
-                                    max: 100,
-                                    value: currentValue,
-                                    onChanged: (value) {
-                                      currentValue = value;
-                                    }),
-                                decoration: BoxDecoration(
-                                    border: Border.all(),
-                                    borderRadius: BorderRadius.circular(20)),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                            border: Border.all(),
-                            borderRadius: BorderRadius.circular(20)),
-                        child: Padding(
-                          padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
-                          child: Column(
-                            children: [
-                              const Text(
-                                "Letter spacing",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 16),
-                              ),
-                              SizedBox(
-                                height: 20,
-                              ),
-                              Container(
-                                width: MediaQuery.of(context).size.width * 0.9,
-                                child: Slider(
-                                    min: 0,
-                                    max: 100,
-                                    value: currentValue,
-                                    onChanged: (value) {
-                                      currentValue = value;
-                                    }),
-                                decoration: BoxDecoration(
-                                    border: Border.all(),
-                                    borderRadius: BorderRadius.circular(20)),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  )
                 ],
+                iconTheme:
+                    IconThemeData(color: Theme.of(context).iconTheme.color),
+                titleTextStyle: Theme.of(context).textTheme.headline6,
+                toolbarTextStyle: Theme.of(context).textTheme.bodyText2,
+              ),
+              body: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Column(
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                                  color: Theme.of(context).colorScheme.primary),
+                              borderRadius: BorderRadius.circular(20)),
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
+                            child: Column(
+                              children: [
+                                const Text(
+                                  "Choose font",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.9,
+                                  child: Provider.of<dropDownMenu>(context)
+                                      .dropdownButtonFormField(context),
+                                  decoration: BoxDecoration(
+                                      border: Border.all(
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .primary),
+                                      borderRadius: BorderRadius.circular(20)),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        Container(
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                                  color: Theme.of(context).colorScheme.primary),
+                              borderRadius: BorderRadius.circular(20)),
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
+                            child: Column(
+                              children: [
+                                const Text(
+                                  "Font size",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.9,
+                                  child: TextFormField(
+                                    textAlign: TextAlign.center,
+                                    textInputAction: TextInputAction.next,
+                                    initialValue: "20",
+                                    keyboardType: TextInputType.number,
+                                    decoration: const InputDecoration(
+                                        border: InputBorder.none,
+                                        hintText: "      Enter font size"),
+                                  ),
+                                  decoration: BoxDecoration(
+                                      border: Border.all(
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .primary),
+                                      borderRadius: BorderRadius.circular(20)),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        Container(
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                                  color: Theme.of(context).colorScheme.primary),
+                              borderRadius: BorderRadius.circular(20)),
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
+                            child: Column(
+                              children: [
+                                const Text(
+                                  "Height gap",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.9,
+                                  child: Slider(
+                                      min: 0,
+                                      max: 100,
+                                      value: currentValue,
+                                      onChanged: (value) {
+                                        currentValue = value;
+                                      }),
+                                  decoration: BoxDecoration(
+                                      border: Border.all(),
+                                      borderRadius: BorderRadius.circular(20)),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        Container(
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                                  color: Theme.of(context).colorScheme.primary),
+                              borderRadius: BorderRadius.circular(20)),
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
+                            child: Column(
+                              children: [
+                                const Text(
+                                  "Word Spacing",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16),
+                                ),
+                                const SizedBox(
+                                  height: 20,
+                                ),
+                                Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.9,
+                                  child: Slider(
+                                      min: 0,
+                                      max: 100,
+                                      value: currentValue,
+                                      onChanged: (value) {
+                                        currentValue = value;
+                                      }),
+                                  decoration: BoxDecoration(
+                                      border: Border.all(
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .primary),
+                                      borderRadius: BorderRadius.circular(20)),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        Container(
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                                  color: Theme.of(context).colorScheme.primary),
+                              borderRadius: BorderRadius.circular(20)),
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
+                            child: Column(
+                              children: [
+                                const Text(
+                                  "Letter spacing",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16),
+                                ),
+                                const SizedBox(
+                                  height: 20,
+                                ),
+                                Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.9,
+                                  child: Slider(
+                                      min: 0,
+                                      max: 100,
+                                      value: currentValue,
+                                      onChanged: (value) {
+                                        currentValue = value;
+                                      }),
+                                  decoration: BoxDecoration(
+                                      border: Border.all(),
+                                      borderRadius: BorderRadius.circular(20)),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                      ],
+                    )
+                  ],
+                ),
               ),
             ),
           ));
