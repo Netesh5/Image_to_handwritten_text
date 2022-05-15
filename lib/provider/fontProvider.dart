@@ -3,9 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:pdf/widgets.dart';
 
-class fontProvider with ChangeNotifier {
-  List<Font> fontlist = [];
-  font() async {
+class fontProvider {
+  static List<Font> fontlist = [];
+  static font() async {
     final font = await rootBundle.load("assets/fonts/QERuthStafford.ttf");
     final ttf = pw.Font.ttf(font);
     final font2 = await rootBundle.load("assets/fonts/QEAntonyLark.ttf");

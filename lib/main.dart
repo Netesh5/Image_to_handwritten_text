@@ -35,8 +35,6 @@ class MyApp extends StatelessWidget {
             create: (context) => themeProvider()),
         ChangeNotifierProvider<bottomNavBar>(
             create: (context) => bottomNavBar()),
-        ChangeNotifierProvider<fontProvider>(
-            create: (context) => fontProvider()),
         ChangeNotifierProvider<dropDownMenu>(
             create: (context) => dropDownMenu()),
         StreamProvider<User?>.value(
