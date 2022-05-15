@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:imagetotext/constants/loadingIndicator.dart';
 import 'package:imagetotext/firebaseServices/AuthService/auth.dart';
 import 'package:imagetotext/provider/fontProvider.dart';
+import 'package:imagetotext/provider/fontSizeProvider.dart';
 import 'package:imagetotext/provider/textRecongnization.dart';
 import 'package:imagetotext/provider/themeProvider.dart';
 import 'package:imagetotext/widgets/bottomNavbar.dart';
@@ -37,6 +38,8 @@ class MyApp extends StatelessWidget {
             create: (context) => bottomNavBar()),
         ChangeNotifierProvider<dropDownMenu>(
             create: (context) => dropDownMenu()),
+        ChangeNotifierProvider<fontSizeProvider>(
+            create: (context) => fontSizeProvider()),
         StreamProvider<User?>.value(
           catchError: (context, error) => null,
           value: Auth().authState,

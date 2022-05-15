@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:imagetotext/provider/fontProvider.dart';
+import 'package:imagetotext/provider/fontSizeProvider.dart';
 import 'package:imagetotext/widgets/dropDownMenu.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:provider/provider.dart';
@@ -132,15 +133,9 @@ bottomSheet(context) {
                                   Container(
                                     width:
                                         MediaQuery.of(context).size.width * 0.9,
-                                    child: TextFormField(
-                                      textAlign: TextAlign.center,
-                                      textInputAction: TextInputAction.next,
-                                      initialValue: "20",
-                                      keyboardType: TextInputType.number,
-                                      decoration: const InputDecoration(
-                                          border: InputBorder.none,
-                                          hintText: "      Enter font size"),
-                                    ),
+                                    child:
+                                        Provider.of<fontSizeProvider>(context)
+                                            .fontSizeFormField(),
                                     decoration: BoxDecoration(
                                         border: Border.all(
                                             color: Theme.of(context)

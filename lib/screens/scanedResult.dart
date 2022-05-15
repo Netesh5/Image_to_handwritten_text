@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:imagetotext/constants/alertdialog.dart';
+import 'package:imagetotext/provider/fontSizeProvider.dart';
 import 'package:imagetotext/provider/textRecongnization.dart';
 import 'package:imagetotext/widgets/bottomNavbar.dart';
 import 'package:imagetotext/widgets/dropDownMenu.dart';
@@ -15,6 +16,7 @@ class scanedResult extends StatelessWidget {
   scanedResult({required this.text});
   TextEditingController textEditingController = TextEditingController();
   int currentIndex = 0;
+
   // pdfGenerator generator = pdfGenerator();
   @override
   Widget build(BuildContext context) {
@@ -71,7 +73,8 @@ class scanedResult extends StatelessWidget {
                       style: TextStyle(
                           fontFamily:
                               Provider.of<dropDownMenu>(context).currentIndex,
-                          fontSize: 20,
+                          fontSize:
+                              Provider.of<fontSizeProvider>(context).FontSize,
                           color: Colors.black),
                       initialValue: text,
                       maxLines: 28,

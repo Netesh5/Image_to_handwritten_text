@@ -3,7 +3,7 @@ import 'package:imagetotext/provider/fontProvider.dart';
 import 'package:provider/provider.dart';
 
 class dropDownMenu with ChangeNotifier {
-  var currentIndex = "QERuthStafford";
+  var currentIndex = "QEBradenHill";
   dropdownButtonFormField(context) {
     fontProvider.font();
     final fontList = [
