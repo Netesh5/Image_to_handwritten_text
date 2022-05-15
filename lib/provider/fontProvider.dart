@@ -4,7 +4,7 @@ import 'package:pdf/widgets.dart' as pw;
 import 'package:pdf/widgets.dart';
 
 class fontProvider {
-  static List<Font> fontlist = [];
+  static List fontlist = [];
   static font() async {
     final font = await rootBundle.load("assets/fonts/QERuthStafford.ttf");
     final ttf = pw.Font.ttf(font);

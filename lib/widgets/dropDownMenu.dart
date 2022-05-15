@@ -3,10 +3,20 @@ import 'package:imagetotext/provider/fontProvider.dart';
 import 'package:provider/provider.dart';
 
 class dropDownMenu with ChangeNotifier {
-  var currentIndex = '<TrueType Font "QERuthStafford"';
+  var currentIndex = "QERuthStafford";
   dropdownButtonFormField(context) {
     fontProvider.font();
-    final fontList = fontProvider.fontlist;
+    final fontList = [
+      "QEAntonyLark",
+      "QEBEV",
+      "QEBradenHill",
+      "QEDavidReidCAP",
+      "QEKevinShirley",
+      "QEKunjarScript",
+      "QEPrintVersion",
+      "QERuthStafford",
+      "QEVRead"
+    ];
     return DropdownButtonFormField(
       hint: const Text("     choose font"),
       decoration: const InputDecoration(
@@ -14,19 +24,15 @@ class dropDownMenu with ChangeNotifier {
       ),
       dropdownColor: Theme.of(context).backgroundColor,
       items: fontList.map((fontList) {
-        return DropdownMenuItem(
-            value: fontList,
-            child: Text("$fontList".substring(
-              14,
-            )));
+        return DropdownMenuItem(value: fontList, child: Text("$fontList"));
       }).toList(),
       onChanged: (value) {
-        currentIndex = value as String;
+        currentIndex = value.toString();
         debugPrint(currentIndex.toString());
         notifyListeners();
       },
       onSaved: (value) {
-        currentIndex = value as String;
+        currentIndex = value.toString();
         notifyListeners();
       },
       value: currentIndex,
