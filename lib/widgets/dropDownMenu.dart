@@ -33,6 +33,7 @@ class dropDownMenu with ChangeNotifier {
       },
       onSaved: (value) {
         currentIndex = value.toString();
+        debugPrint(currentIndex);
         notifyListeners();
       },
       value: currentIndex,

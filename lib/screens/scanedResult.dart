@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:imagetotext/constants/alertdialog.dart';
 import 'package:imagetotext/provider/textRecongnization.dart';
 import 'package:imagetotext/widgets/bottomNavbar.dart';
+import 'package:imagetotext/widgets/dropDownMenu.dart';
 
 import 'package:imagetotext/widgets/settingBottomSheet.dart';
 import 'package:pdf/pdf.dart';
@@ -67,8 +68,9 @@ class scanedResult extends StatelessWidget {
                       minLines: 1,
                       cursorHeight: 0.1,
                       cursorColor: Colors.black,
-                      style: const TextStyle(
-                          fontFamily: 'QERuthStafford',
+                      style: TextStyle(
+                          fontFamily:
+                              Provider.of<dropDownMenu>(context).currentIndex,
                           fontSize: 20,
                           color: Colors.black),
                       initialValue: text,
