@@ -13,6 +13,11 @@ class fontSizeProvider with ChangeNotifier {
           border: InputBorder.none, hintText: "      Enter font size"),
       onChanged: (value) {
         fontSize = value;
+
+        notifyListeners();
+      },
+      onSaved: (value) {
+        fontSize = value!;
         FontSize = double.parse(fontSize);
         notifyListeners();
       },
