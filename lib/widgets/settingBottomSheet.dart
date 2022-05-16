@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:imagetotext/provider/fontProvider.dart';
 import 'package:imagetotext/provider/fontSizeProvider.dart';
+import 'package:imagetotext/provider/heightgapslider.dart';
 import 'package:imagetotext/widgets/dropDownMenu.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:provider/provider.dart';
@@ -174,13 +175,9 @@ bottomSheet(context) {
                                   Container(
                                     width:
                                         MediaQuery.of(context).size.width * 0.9,
-                                    child: Slider(
-                                        min: 0,
-                                        max: 100,
-                                        value: currentValue,
-                                        onChanged: (value) {
-                                          currentValue = value;
-                                        }),
+                                    child: Provider.of<heightgapSlider>(context,
+                                            listen: false)
+                                        .HeightgapSlider(),
                                     decoration: BoxDecoration(
                                         border: Border.all(),
                                         borderRadius:
