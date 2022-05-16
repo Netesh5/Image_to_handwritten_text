@@ -13,12 +13,12 @@ class fontSizeProvider with ChangeNotifier {
           border: InputBorder.none, hintText: "      Enter font size"),
       onChanged: (value) {
         fontSize = value;
-
-        notifyListeners();
-      },
-      onSaved: (value) {
-        fontSize = value!;
-        FontSize = double.parse(fontSize);
+        try {
+          FontSize = double.parse(
+              fontSize); // using try catch block to remove null error
+        } catch (e) {
+          return;
+        }
         notifyListeners();
       },
     );
