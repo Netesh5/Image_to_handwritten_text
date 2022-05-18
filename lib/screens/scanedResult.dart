@@ -67,6 +67,7 @@ class scanedResult extends StatelessWidget {
                       left: 20,
                     ),
                     child: TextFormField(
+                      textInputAction: TextInputAction.done,
                       minLines: 1,
                       cursorHeight: 0.1,
                       cursorColor: Colors.black,
