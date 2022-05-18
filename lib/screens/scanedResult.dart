@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:imagetotext/constants/alertdialog.dart';
 import 'package:imagetotext/provider/fontSizeProvider.dart';
+import 'package:imagetotext/provider/heightgapslider.dart';
 import 'package:imagetotext/provider/textRecongnization.dart';
 import 'package:imagetotext/widgets/bottomNavbar.dart';
 import 'package:imagetotext/widgets/dropDownMenu.dart';
@@ -72,6 +73,11 @@ class scanedResult extends StatelessWidget {
                       cursorHeight: 0.1,
                       cursorColor: Colors.black,
                       style: TextStyle(
+                          height: Provider.of<heightgapSlider>(context)
+                                      .heightGap ==
+                                  0
+                              ? null
+                              : Provider.of<heightgapSlider>(context).heightGap,
                           fontFamily:
                               Provider.of<dropDownMenu>(context).currentIndex,
                           fontSize:

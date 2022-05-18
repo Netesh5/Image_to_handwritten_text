@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
 class heightgapSlider with ChangeNotifier {
-  int heightGap = 2;
+  double heightGap = 0.0;
   HeightgapSlider() {
     return Slider(
-        min: 1,
-        max: 10,
-        divisions: 10,
-        value: heightGap.toDouble(),
+        min: 0.0,
+        max: 3.0,
+        divisions: 12,
+        value: heightGap,
         onChanged: (value) {
-          heightGap = value.toInt();
+          heightGap = value;
           notifyListeners();
         });
   }

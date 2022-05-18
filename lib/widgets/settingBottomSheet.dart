@@ -175,9 +175,10 @@ bottomSheet(context) {
                                   Container(
                                     width:
                                         MediaQuery.of(context).size.width * 0.9,
-                                    child: Provider.of<heightgapSlider>(context,
-                                            listen: false)
-                                        .HeightgapSlider(),
+                                    child: Consumer<heightgapSlider>(
+                                        builder:
+                                            (context, heightslider, child) =>
+                                                heightslider.HeightgapSlider()),
                                     decoration: BoxDecoration(
                                         border: Border.all(),
                                         borderRadius:
