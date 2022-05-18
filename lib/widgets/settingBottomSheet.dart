@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:imagetotext/provider/fontProvider.dart';
 import 'package:imagetotext/provider/fontSizeProvider.dart';
 import 'package:imagetotext/provider/heightgapslider.dart';
+import 'package:imagetotext/provider/letterSpacingSilder.dart';
 import 'package:imagetotext/provider/wordSpacingSlider.dart';
 import 'package:imagetotext/widgets/dropDownMenu.dart';
 import 'package:pdf/widgets.dart' as pw;
@@ -257,6 +258,11 @@ bottomSheet(context) {
                                   Container(
                                     width:
                                         MediaQuery.of(context).size.width * 0.9,
+                                    child: Consumer<letterSpacingSlider>(
+                                        builder: ((context, letterSpacing,
+                                                child) =>
+                                            letterSpacing
+                                                .LetterSpacingSlider())),
                                     decoration: BoxDecoration(
                                         border: Border.all(),
                                         borderRadius:

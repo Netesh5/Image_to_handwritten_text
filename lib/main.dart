@@ -6,6 +6,7 @@ import 'package:imagetotext/firebaseServices/AuthService/auth.dart';
 import 'package:imagetotext/provider/fontProvider.dart';
 import 'package:imagetotext/provider/fontSizeProvider.dart';
 import 'package:imagetotext/provider/heightgapslider.dart';
+import 'package:imagetotext/provider/letterSpacingSilder.dart';
 import 'package:imagetotext/provider/textRecongnization.dart';
 import 'package:imagetotext/provider/themeProvider.dart';
 import 'package:imagetotext/provider/wordSpacingSlider.dart';
@@ -46,6 +47,8 @@ class MyApp extends StatelessWidget {
             create: (context) => heightgapSlider()),
         ChangeNotifierProvider<wordSpacingSlider>(
             create: (context) => wordSpacingSlider()),
+        ChangeNotifierProvider<letterSpacingSlider>(
+            create: (context) => letterSpacingSlider()),
         StreamProvider<User?>.value(
           catchError: (context, error) => null,
           value: Auth().authState,
