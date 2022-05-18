@@ -4,6 +4,7 @@ import 'package:imagetotext/constants/alertdialog.dart';
 import 'package:imagetotext/provider/fontSizeProvider.dart';
 import 'package:imagetotext/provider/heightgapslider.dart';
 import 'package:imagetotext/provider/textRecongnization.dart';
+import 'package:imagetotext/provider/wordSpacingSlider.dart';
 import 'package:imagetotext/widgets/bottomNavbar.dart';
 import 'package:imagetotext/widgets/dropDownMenu.dart';
 
@@ -78,6 +79,13 @@ class scanedResult extends StatelessWidget {
                                   0
                               ? null
                               : Provider.of<heightgapSlider>(context).heightGap,
+                          wordSpacing:
+                              Provider.of<wordSpacingSlider>(context)
+                                          .wordSpacing ==
+                                      0.0
+                                  ? null
+                                  : Provider.of<wordSpacingSlider>(context)
+                                      .wordSpacing,
                           fontFamily:
                               Provider.of<dropDownMenu>(context).currentIndex,
                           fontSize:

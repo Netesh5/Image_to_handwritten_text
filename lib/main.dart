@@ -8,6 +8,7 @@ import 'package:imagetotext/provider/fontSizeProvider.dart';
 import 'package:imagetotext/provider/heightgapslider.dart';
 import 'package:imagetotext/provider/textRecongnization.dart';
 import 'package:imagetotext/provider/themeProvider.dart';
+import 'package:imagetotext/provider/wordSpacingSlider.dart';
 import 'package:imagetotext/widgets/bottomNavbar.dart';
 import 'package:imagetotext/widgets/dropDownMenu.dart';
 import 'package:imagetotext/widgets/imagePicker.dart';
@@ -43,6 +44,8 @@ class MyApp extends StatelessWidget {
             create: (context) => fontSizeProvider()),
         ChangeNotifierProvider<heightgapSlider>(
             create: (context) => heightgapSlider()),
+        ChangeNotifierProvider<wordSpacingSlider>(
+            create: (context) => wordSpacingSlider()),
         StreamProvider<User?>.value(
           catchError: (context, error) => null,
           value: Auth().authState,
