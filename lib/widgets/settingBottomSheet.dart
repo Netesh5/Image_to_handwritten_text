@@ -41,17 +41,16 @@ bottomSheet(context) {
                             Theme.of(context).textTheme.headline6!.fontSize),
                   ),
                 ),
-                leading: GestureDetector(
-                  child: const Icon(Icons.close),
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                ),
+                automaticallyImplyLeading: false,
                 actions: [
                   Padding(
                     padding: const EdgeInsets.only(right: 20.0),
                     child: GestureDetector(
-                      child: const Icon(Icons.done),
+                      child: const Center(
+                          child: Text(
+                        "Done",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      )),
                       onTap: () {
                         Navigator.pop(context);
                       },

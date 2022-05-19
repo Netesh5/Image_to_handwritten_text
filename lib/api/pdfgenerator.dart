@@ -43,12 +43,22 @@ class pdfGenerator {
 
   savePdf(BuildContext context, String name) async {
     try {
-      final dir = await getExternalStorageDirectory();
-      // final path = dir!.path + "/text.pdf";
-      final file = File(dir!.path + "/" + name + ".pdf");
-      await file
-          .writeAsBytes(await pdf.save())
-          .then((value) => errorSnackbar(context, "File saved"));
+      if (Platform.isIOS) {
+        final dir = await getApplicationDocumentsDirectory();
+        debugPrint(dir.toString());
+        // final path = dir!.path + "/text.pdf";
+        final file = File(dir.path + "/" + name + ".pdf");
+        await file
+            .writeAsBytes(await pdf.save())
+            .then((value) => errorSnackbar(context, "File saved"));
+      } else {
+        final dir = await getExternalStorageDirectory();
+        // final path = dir!.path + "/text.pdf";
+        final file = File(dir!.path + "/" + name + ".pdf");
+        await file
+            .writeAsBytes(await pdf.save())
+            .then((value) => errorSnackbar(context, "File saved"));
+      }
     } on PlatformException catch (e) {
       errorSnackbar(context, e.message.toString());
     }
