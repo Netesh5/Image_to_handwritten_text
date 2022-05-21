@@ -8,6 +8,7 @@ class wordSpacingSlider with ChangeNotifier {
         min: 0.0,
         max: 20.0,
         divisions: 10,
+        label: wordSpacing.toString(),
         value: wordSpacing,
         onChanged: (value) {
           wordSpacing = value;

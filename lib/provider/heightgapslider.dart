@@ -7,6 +7,7 @@ class heightgapSlider with ChangeNotifier {
         min: 0.0,
         max: 3.0,
         divisions: 12,
+        label: heightGap.toString(),
         value: heightGap,
         onChanged: (value) {
           heightGap = value;

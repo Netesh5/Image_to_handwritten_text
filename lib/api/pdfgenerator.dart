@@ -3,6 +3,8 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:imagetotext/provider/heightgapslider.dart';
+import 'package:imagetotext/provider/letterSpacingSilder.dart';
+import 'package:imagetotext/provider/wordSpacingSlider.dart';
 import 'package:imagetotext/widgets/errorSnackBar.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:pdf/pdf.dart';
@@ -13,9 +15,26 @@ class pdfGenerator {
   final pdf = pw.Document();
 
   createPdf(String text, BuildContext context) async {
-    final height = Provider.of<heightgapSlider>(context).heightGap == 0
+    double? height =
+        Provider.of<heightgapSlider>(context, listen: false).heightGap == 0
+            ? null
+            : Provider.of<heightgapSlider>(context, listen: false).heightGap;
+    double? wordspacing = Provider.of<wordSpacingSlider>(context, listen: false)
+                .wordSpacing ==
+            0.0
         ? null
-        : Provider.of<heightgapSlider>(context).heightGap;
+        : Provider.of<wordSpacingSlider>(context, listen: false).wordSpacing;
+    double? letterspacing =
+        Provider.of<letterSpacingSlider>(context, listen: false)
+                    .letterspacing ==
+                0.0
+            ? null
+            : Provider.of<letterSpacingSlider>(context, listen: false)
+                .letterspacing;
+    debugPrint(height.toString());
+    debugPrint(wordspacing.toString());
+    debugPrint(letterspacing.toString());
+
     final font = await rootBundle.load("assets/fonts/QEDavidReidCAP.ttf");
     final ttf = pw.Font.ttf(font);
     debugPrint(ttf.toString());
@@ -43,8 +62,12 @@ class pdfGenerator {
                 left: 23,
               ),
               child: pw.Text(text,
-                  style:
-                      pw.TextStyle(fontSize: 16, font: ttf, height: height)));
+                  style: pw.TextStyle(
+                      fontSize: 16,
+                      font: ttf,
+                      height: height,
+                      wordSpacing: wordspacing,
+                      letterSpacing: letterspacing)));
         }));
   }
 

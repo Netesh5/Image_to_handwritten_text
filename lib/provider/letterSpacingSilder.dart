@@ -7,6 +7,7 @@ class letterSpacingSlider with ChangeNotifier {
         min: 0.0,
         max: 5,
         divisions: 10,
+        label: letterspacing.toString(),
         value: letterspacing,
         onChanged: (value) {
           letterspacing = value;
