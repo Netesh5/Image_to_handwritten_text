@@ -31,7 +31,7 @@ alertDialog(BuildContext context, String text) {
         TextButton(
             onPressed: () async {
               pdfGenerator generator = pdfGenerator();
-              await generator.createPdf(text);
+              await generator.createPdf(text, context);
               await generator.savePdf(context, name);
               Navigator.pop(context);
             },

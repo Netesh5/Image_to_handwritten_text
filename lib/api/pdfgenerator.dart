@@ -2,16 +2,20 @@ import 'dart:io';
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:imagetotext/provider/fontProvider.dart';
+import 'package:imagetotext/provider/heightgapslider.dart';
 import 'package:imagetotext/widgets/errorSnackBar.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
+import 'package:provider/provider.dart';
 
 class pdfGenerator {
   final pdf = pw.Document();
 
-  createPdf(String text) async {
+  createPdf(String text, BuildContext context) async {
+    final height = Provider.of<heightgapSlider>(context).heightGap == 0
+        ? null
+        : Provider.of<heightgapSlider>(context).heightGap;
     final font = await rootBundle.load("assets/fonts/QEDavidReidCAP.ttf");
     final ttf = pw.Font.ttf(font);
     debugPrint(ttf.toString());
@@ -38,8 +42,9 @@ class pdfGenerator {
               padding: const pw.EdgeInsets.only(
                 left: 23,
               ),
-              child:
-                  pw.Text(text, style: pw.TextStyle(fontSize: 16, font: ttf)));
+              child: pw.Text(text,
+                  style:
+                      pw.TextStyle(fontSize: 16, font: ttf, height: height)));
         }));
   }
 
