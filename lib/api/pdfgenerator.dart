@@ -12,7 +12,7 @@ class pdfGenerator {
   final pdf = pw.Document();
 
   createPdf(String text) async {
-    final font = await rootBundle.load("assets/fonts/QERuthStafford.ttf");
+    final font = await rootBundle.load("assets/fonts/QEDavidReidCAP.ttf");
     final ttf = pw.Font.ttf(font);
     debugPrint(ttf.toString());
 
@@ -35,9 +35,11 @@ class pdfGenerator {
         pageTheme: pagetheme,
         build: (pw.Context context) {
           return pw.Padding(
-              padding: const pw.EdgeInsets.only(left: 20, top: -10),
+              padding: const pw.EdgeInsets.only(
+                left: 23,
+              ),
               child:
-                  pw.Text(text, style: pw.TextStyle(fontSize: 20, font: ttf)));
+                  pw.Text(text, style: pw.TextStyle(fontSize: 16, font: ttf)));
         }));
   }
 

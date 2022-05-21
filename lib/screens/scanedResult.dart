@@ -64,7 +64,7 @@ class scanedResult extends StatelessWidget {
                   fit: BoxFit.cover,
                 )),
                 child: Container(
-                  margin: const EdgeInsets.only(left: 72, top: 62),
+                  margin: const EdgeInsets.only(left: 75, top: 62),
                   child: Padding(
                     padding: const EdgeInsets.only(
                       left: 20,
