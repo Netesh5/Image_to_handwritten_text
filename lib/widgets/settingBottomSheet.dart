@@ -181,7 +181,10 @@ bottomSheet(context) {
                                             (context, heightslider, child) =>
                                                 heightslider.HeightgapSlider()),
                                     decoration: BoxDecoration(
-                                        border: Border.all(),
+                                        border: Border.all(
+                                            color: Theme.of(context)
+                                                .colorScheme
+                                                .primary),
                                         borderRadius:
                                             BorderRadius.circular(20)),
                                   )
@@ -263,7 +266,10 @@ bottomSheet(context) {
                                             letterSpacing
                                                 .LetterSpacingSlider())),
                                     decoration: BoxDecoration(
-                                        border: Border.all(),
+                                        border: Border.all(
+                                            color: Theme.of(context)
+                                                .colorScheme
+                                                .primary),
                                         borderRadius:
                                             BorderRadius.circular(20)),
                                   ),

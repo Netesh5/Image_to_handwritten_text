@@ -72,7 +72,7 @@ class scanedResult extends StatelessWidget {
                     child: TextFormField(
                       textInputAction: TextInputAction.done,
                       minLines: 1,
-                      cursorHeight: 0.1,
+                      cursorHeight: 10,
                       cursorColor: Colors.black,
                       style: TextStyle(
                           height: Provider.of<heightgapSlider>(context)
