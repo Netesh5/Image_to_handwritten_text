@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> {
         iconTheme: Theme.of(context).iconTheme,
         backgroundColor: Theme.of(context).backgroundColor,
         title: const Text(
-          "Image to Text",
+          "Image to Handwritten Text",
         ),
         toolbarTextStyle: Theme.of(context).textTheme.bodyText2,
         titleTextStyle: Theme.of(context).textTheme.headline6,
