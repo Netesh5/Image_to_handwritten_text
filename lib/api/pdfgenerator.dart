@@ -6,6 +6,7 @@ import 'package:imagetotext/provider/fontSizeProvider.dart';
 import 'package:imagetotext/provider/heightgapslider.dart';
 import 'package:imagetotext/provider/letterSpacingSilder.dart';
 import 'package:imagetotext/provider/wordSpacingSlider.dart';
+import 'package:imagetotext/widgets/dropDownMenu.dart';
 import 'package:imagetotext/widgets/errorSnackBar.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:pdf/pdf.dart';
@@ -32,13 +33,18 @@ class pdfGenerator {
             ? null
             : Provider.of<letterSpacingSlider>(context, listen: false)
                 .letterspacing;
-    final fontsize =
-        Provider.of<fontSizeProvider>(context, listen: false).FontSize;
+    double? fontsize =
+        Provider.of<fontSizeProvider>(context, listen: false).FontSize ?? 16.0;
+    final fontFamily =
+        Provider.of<dropDownMenu>(context, listen: false).currentIndex;
+
     debugPrint(height.toString());
     debugPrint(wordspacing.toString());
     debugPrint(letterspacing.toString());
+    debugPrint(fontsize.toString());
+    debugPrint(fontFamily);
 
-    final font = await rootBundle.load("assets/fonts/QEDavidReidCAP.ttf");
+    final font = await rootBundle.load("assets/fonts/$fontFamily.ttf");
     final ttf = pw.Font.ttf(font);
     debugPrint(ttf.toString());
 
