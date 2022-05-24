@@ -60,8 +60,10 @@ class _HomePageState extends State<HomePage> {
                         ],
                       )
                     : Image.file(
-                        File(imagepicker.imagePath),
-                        fit: BoxFit.fill,
+                        imagepicker.CroppedImagePath.isEmpty
+                            ? File(imagepicker.imagePath)
+                            : File(imagepicker.CroppedImagePath),
+                        fit: BoxFit.contain,
                       ),
                 decoration: BoxDecoration(
                   color: Theme.of(context).colorScheme.secondary,
@@ -135,9 +137,19 @@ class _HomePageState extends State<HomePage> {
         builder: (context, textrecognizer, child) =>
             FloatingActionButton.extended(
           onPressed: () async {
-            final result = await textrecognizer.recoginizeText(
-                Provider.of<Imagepicker>(context, listen: false).imagePath,
-                context);
+            final result;
+            if (Provider.of<Imagepicker>(context, listen: false)
+                .CroppedImagePath
+                .isNotEmpty) {
+              result = await textrecognizer.recoginizeText(
+                  Provider.of<Imagepicker>(context, listen: false)
+                      .CroppedImagePath,
+                  context);
+            } else {
+              result = await textrecognizer.recoginizeText(
+                  Provider.of<Imagepicker>(context, listen: false).imagePath,
+                  context);
+            }
             //debugPrint(
             //Provider.of<Imagepicker>(context, listen: false).imagePath);
             debugPrint(result);
