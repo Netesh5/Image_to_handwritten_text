@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:imagetotext/widgets/imagePicker.dart';
 import 'package:imagetotext/widgets/settingBottomSheet.dart';
+import 'package:provider/provider.dart';
 
 class bottomNavBar with ChangeNotifier {
   bottomNavbar(context) {
@@ -34,6 +37,8 @@ class bottomNavBar with ChangeNotifier {
       onDestinationSelected: (index) {
         currentIndex = index;
         if (currentIndex == 0) {
+          Provider.of<Imagepicker>(context, listen: false)
+              .imagePickerGallay(context);
         } else {
           bottomSheet(context);
         }
