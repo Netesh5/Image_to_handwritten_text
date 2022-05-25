@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:imagetotext/constants/alertdialog.dart';
+import 'package:imagetotext/provider/fontColorProvider.dart';
 import 'package:imagetotext/provider/fontSizeProvider.dart';
 import 'package:imagetotext/provider/heightgapslider.dart';
 import 'package:imagetotext/provider/letterSpacingSilder.dart';
@@ -75,29 +76,31 @@ class scanedResult extends StatelessWidget {
                       cursorHeight: 10,
                       cursorColor: Colors.black,
                       style: TextStyle(
-                          height: Provider.of<heightgapSlider>(context)
-                                      .heightGap ==
-                                  0
-                              ? null
-                              : Provider.of<heightgapSlider>(context).heightGap,
-                          wordSpacing: Provider.of<wordSpacingSlider>(context)
-                                      .wordSpacing ==
-                                  0.0
-                              ? null
-                              : Provider.of<wordSpacingSlider>(context)
-                                  .wordSpacing,
-                          letterSpacing:
-                              Provider.of<letterSpacingSlider>(context)
-                                          .letterspacing ==
-                                      0.0
-                                  ? null
-                                  : Provider.of<letterSpacingSlider>(context)
-                                      .letterspacing,
-                          fontFamily:
-                              Provider.of<dropDownMenu>(context).currentIndex,
-                          fontSize:
-                              Provider.of<fontSizeProvider>(context).FontSize,
-                          color: Colors.black),
+                        height:
+                            Provider.of<heightgapSlider>(context).heightGap == 0
+                                ? null
+                                : Provider.of<heightgapSlider>(context)
+                                    .heightGap,
+                        wordSpacing: Provider.of<wordSpacingSlider>(context)
+                                    .wordSpacing ==
+                                0.0
+                            ? null
+                            : Provider.of<wordSpacingSlider>(context)
+                                .wordSpacing,
+                        letterSpacing: Provider.of<letterSpacingSlider>(context)
+                                    .letterspacing ==
+                                0.0
+                            ? null
+                            : Provider.of<letterSpacingSlider>(context)
+                                .letterspacing,
+                        fontFamily:
+                            Provider.of<dropDownMenu>(context).currentIndex,
+                        fontSize:
+                            Provider.of<fontSizeProvider>(context).FontSize,
+                        color: Provider.of<fontColorProvider>(context,
+                                listen: false)
+                            .currentColor,
+                      ),
                       initialValue: text,
                       maxLines: 28,
                       onChanged: (value) {

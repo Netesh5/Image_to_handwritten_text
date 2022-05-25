@@ -1,5 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter_colorpicker/flutter_colorpicker.dart';
+import 'package:imagetotext/provider/fontColorProvider.dart';
 import 'package:imagetotext/provider/fontProvider.dart';
 import 'package:imagetotext/provider/fontSizeProvider.dart';
 import 'package:imagetotext/provider/heightgapslider.dart';
@@ -146,6 +148,54 @@ bottomSheet(context) {
                                         borderRadius:
                                             BorderRadius.circular(20)),
                                   )
+                                ],
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                                border: Border.all(
+                                    color:
+                                        Theme.of(context).colorScheme.primary),
+                                borderRadius: BorderRadius.circular(20)),
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.fromLTRB(10, 20, 10, 20),
+                              child: Column(
+                                children: [
+                                  const Text(
+                                    "Ink color",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 16),
+                                  ),
+                                  const SizedBox(
+                                    height: 20,
+                                  ),
+                                  Container(
+                                    width:
+                                        MediaQuery.of(context).size.width * 0.9,
+                                    height: 90,
+                                    child: Consumer<fontColorProvider>(
+                                        builder: ((context, inkcolor, child) =>
+                                            BlockPicker(
+                                                availableColors:
+                                                    inkcolor.currentColors,
+                                                pickerColor:
+                                                    inkcolor.currentColor,
+                                                onColorChanged:
+                                                    inkcolor.changeColor))),
+                                    decoration: BoxDecoration(
+                                        border: Border.all(
+                                            color: Theme.of(context)
+                                                .colorScheme
+                                                .primary),
+                                        borderRadius:
+                                            BorderRadius.circular(20)),
+                                  ),
                                 ],
                               ),
                             ),

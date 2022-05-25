@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:imagetotext/constants/loadingIndicator.dart';
 import 'package:imagetotext/firebaseServices/AuthService/auth.dart';
+import 'package:imagetotext/provider/fontColorProvider.dart';
 import 'package:imagetotext/provider/fontSizeProvider.dart';
 import 'package:imagetotext/provider/heightgapslider.dart';
 import 'package:imagetotext/provider/letterSpacingSilder.dart';
@@ -48,6 +49,8 @@ class MyApp extends StatelessWidget {
             create: (context) => wordSpacingSlider()),
         ChangeNotifierProvider<letterSpacingSlider>(
             create: (context) => letterSpacingSlider()),
+        ChangeNotifierProvider<fontColorProvider>(
+            create: (context) => fontColorProvider()),
         StreamProvider<User?>.value(
           catchError: (context, error) => null,
           value: Auth().authState,

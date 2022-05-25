@@ -2,6 +2,7 @@ import 'dart:io';
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:imagetotext/provider/fontColorProvider.dart';
 import 'package:imagetotext/provider/fontSizeProvider.dart';
 import 'package:imagetotext/provider/heightgapslider.dart';
 import 'package:imagetotext/provider/letterSpacingSilder.dart';
@@ -37,6 +38,8 @@ class pdfGenerator {
         Provider.of<fontSizeProvider>(context, listen: false).FontSize ?? 16.0;
     final fontFamily =
         Provider.of<dropDownMenu>(context, listen: false).currentIndex;
+    Color fontColor =
+        Provider.of<fontColorProvider>(context, listen: false).currentColor;
 
     debugPrint(height.toString());
     debugPrint(wordspacing.toString());
@@ -55,8 +58,8 @@ class pdfGenerator {
 
 //to create backgroundImages
     final pagetheme = pw.PageTheme(
-        pageFormat: PdfPageFormat.letter,
-        //.applyMargin(left: 75, top: 62, right: 0, bottom: 0),
+        pageFormat: PdfPageFormat.letter
+            .applyMargin(left: 0, top: 0, right: 0, bottom: 0),
         buildBackground: (pw.Context context) {
           return pw.FullPage(
             ignoreMargins: true,
@@ -68,11 +71,10 @@ class pdfGenerator {
         pageTheme: pagetheme,
         build: (pw.Context context) {
           return pw.Padding(
-            padding: const pw.EdgeInsets.only(
-              left: 23,
-            ),
+            padding: const pw.EdgeInsets.only(left: 23, right: 0),
             child: pw.Text(text,
                 style: pw.TextStyle(
+                  color: PdfColor.fromInt(fontColor.value),
                   fontSize: fontsize,
                   font: ttf,
                   height: height,
