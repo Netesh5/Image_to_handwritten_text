@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
@@ -6,6 +8,7 @@ import 'package:image_cropper/image_cropper.dart';
 
 class Imagepicker with ChangeNotifier {
   XFile? file;
+  List<File> files = [];
   String imagePath = "";
   String CroppedImagePath = "";
   Future imagePickerGallay(context) async {
@@ -15,6 +18,7 @@ class Imagepicker with ChangeNotifier {
       );
       if (file != null) {
         imagePath = file!.path;
+
         debugPrint(imagePath);
         CropImage(imagePath);
       } else {
@@ -49,7 +53,9 @@ class Imagepicker with ChangeNotifier {
     );
     if (croppedImage != null) {
       CroppedImagePath = croppedImage.path;
+      files.add(File(croppedImage.path));
       debugPrint(croppedImage.path);
+      debugPrint(files.length.toString());
       notifyListeners();
     }
   }
