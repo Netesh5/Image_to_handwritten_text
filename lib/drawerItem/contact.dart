@@ -27,8 +27,12 @@ class _contactusState extends State<contactus> {
                     height: 20,
                   ),
                   CircleAvatar(
-                    radius: 80,
-                    backgroundImage: AssetImage("assets/images/netesh.heic"),
+                    radius: 90,
+                    backgroundColor: Theme.of(context).backgroundColor,
+                    child: const CircleAvatar(
+                      radius: 80,
+                      backgroundImage: AssetImage("assets/images/netesh.heic"),
+                    ),
                   ),
                   const SizedBox(
                     height: 20,
@@ -50,6 +54,80 @@ class _contactusState extends State<contactus> {
                         fontSize: 16,
                         color: Theme.of(context).backgroundColor),
                   ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Row(
+                    children: [
+                      const SizedBox(
+                        width: 5,
+                      ),
+                      Expanded(
+                        child: Divider(
+                          thickness: 1,
+                          color: Theme.of(context).backgroundColor,
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 5,
+                      ),
+                      Text(
+                        "contact me ",
+                        style: TextStyle(
+                            color: Theme.of(context).backgroundColor,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      const SizedBox(
+                        width: 5,
+                      ),
+                      Expanded(
+                        child: Divider(
+                          thickness: 1,
+                          color: Theme.of(context).backgroundColor,
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 5,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 40,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      IconButton(
+                          onPressed: () {},
+                          icon: Icon(
+                            Icons.linked_camera,
+                            color: Theme.of(context).backgroundColor,
+                            size: 40,
+                          )),
+                      IconButton(
+                          onPressed: () {},
+                          icon: Icon(
+                            Icons.linked_camera,
+                            color: Theme.of(context).backgroundColor,
+                            size: 40,
+                          )),
+                      IconButton(
+                          onPressed: () {},
+                          icon: Icon(
+                            Icons.linked_camera,
+                            color: Theme.of(context).backgroundColor,
+                            size: 40,
+                          )),
+                      IconButton(
+                          onPressed: () {},
+                          icon: Icon(
+                            Icons.linked_camera,
+                            color: Theme.of(context).backgroundColor,
+                            size: 40,
+                          ))
+                    ],
+                  )
                 ],
               ),
             ),
