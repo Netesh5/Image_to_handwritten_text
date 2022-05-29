@@ -29,8 +29,10 @@ class scanedResult extends StatelessWidget {
   // pdfGenerator generator = pdfGenerator();
   @override
   Widget build(BuildContext context) {
-    List<String> texts = [text];
+    List<String> texts = <String>[];
     texts.add(text);
+    debugPrint("-------------");
+
     return Scaffold(
         appBar: AppBar(
           iconTheme: Theme.of(context).iconTheme,
@@ -80,44 +82,44 @@ class scanedResult extends StatelessWidget {
                         left: 20,
                       ),
                       child: TextFormField(
-                        textInputAction: TextInputAction.done,
-                        minLines: 1,
-                        cursorHeight: 10,
-                        cursorColor: Colors.black,
-                        style: TextStyle(
-                          height: Provider.of<heightgapSlider>(context)
-                                      .heightGap ==
-                                  0
-                              ? null
-                              : Provider.of<heightgapSlider>(context).heightGap,
-                          wordSpacing: Provider.of<wordSpacingSlider>(context)
-                                      .wordSpacing ==
-                                  0.0
-                              ? null
-                              : Provider.of<wordSpacingSlider>(context)
-                                  .wordSpacing,
-                          letterSpacing:
-                              Provider.of<letterSpacingSlider>(context)
-                                          .letterspacing ==
-                                      0.0
-                                  ? null
-                                  : Provider.of<letterSpacingSlider>(context)
-                                      .letterspacing,
-                          fontFamily:
-                              Provider.of<dropDownMenu>(context).currentIndex,
-                          fontSize:
-                              Provider.of<fontSizeProvider>(context).FontSize,
-                          color: Provider.of<fontColorProvider>(
-                            context,
-                          ).currentColor,
-                        ),
-                        initialValue: texts[index],
-                        maxLines: 28,
-                        onChanged: (value) {
-                          texts[index] = value;
-                          debugPrint(texts[index]);
-                        },
-                      ),
+                          textInputAction: TextInputAction.done,
+                          minLines: 1,
+                          cursorHeight: 10,
+                          cursorColor: Colors.black,
+                          style: TextStyle(
+                            height: Provider.of<heightgapSlider>(context)
+                                        .heightGap ==
+                                    0
+                                ? null
+                                : Provider.of<heightgapSlider>(context)
+                                    .heightGap,
+                            wordSpacing: Provider.of<wordSpacingSlider>(context)
+                                        .wordSpacing ==
+                                    0.0
+                                ? null
+                                : Provider.of<wordSpacingSlider>(context)
+                                    .wordSpacing,
+                            letterSpacing:
+                                Provider.of<letterSpacingSlider>(context)
+                                            .letterspacing ==
+                                        0.0
+                                    ? null
+                                    : Provider.of<letterSpacingSlider>(context)
+                                        .letterspacing,
+                            fontFamily:
+                                Provider.of<dropDownMenu>(context).currentIndex,
+                            fontSize:
+                                Provider.of<fontSizeProvider>(context).FontSize,
+                            color: Provider.of<fontColorProvider>(
+                              context,
+                            ).currentColor,
+                          ),
+                          initialValue: text,
+                          maxLines: 28,
+                          onChanged: (value) {
+                            texts[index] = value;
+                            debugPrint(texts[index]);
+                          }),
                     ),
                   ),
                 ),

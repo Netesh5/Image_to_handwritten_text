@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:imagetotext/drawerItem/contact.dart';
 import 'package:imagetotext/firebaseServices/AuthService/auth.dart';
 import 'package:imagetotext/provider/themeProvider.dart';
 import 'package:provider/provider.dart';
@@ -47,9 +48,15 @@ Widget drawer(context) {
           leading: Icon(Icons.star_outline_sharp),
           title: Text("Rate us"),
         ),
-        const ListTile(
-          leading: Icon(Icons.contact_phone),
-          title: Text("Contact us"),
+        GestureDetector(
+          onTap: (() {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => contactus()));
+          }),
+          child: const ListTile(
+            leading: Icon(Icons.contact_phone),
+            title: Text("Contact us"),
+          ),
         ),
         GestureDetector(
           onTap: () {
