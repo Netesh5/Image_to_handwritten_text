@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class contactus extends StatefulWidget {
   const contactus({Key? key}) : super(key: key);
@@ -99,30 +102,41 @@ class _contactusState extends State<contactus> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.linked_camera,
+                          onPressed: () {
+                            launchUrlString(
+                                "https://www.linkedin.com/in/netesh-paudel/");
+                          },
+                          icon: FaIcon(
+                            FontAwesomeIcons.linkedin,
                             color: Theme.of(context).backgroundColor,
                             size: 40,
                           )),
                       IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.linked_camera,
+                          onPressed: () {
+                            launchUrlString("https://www.github.com/Netesh5");
+                          },
+                          icon: FaIcon(
+                            FontAwesomeIcons.github,
                             color: Theme.of(context).backgroundColor,
                             size: 40,
                           )),
                       IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.linked_camera,
+                          onPressed: () {
+                            launchUrlString(
+                                "https://www.facebook.com/nitesh.paudel.5");
+                          },
+                          icon: FaIcon(
+                            FontAwesomeIcons.facebook,
                             color: Theme.of(context).backgroundColor,
                             size: 40,
                           )),
                       IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.linked_camera,
+                          onPressed: () {
+                            launchUrlString(
+                                "https://www.twitter.com/netesh_paudel");
+                          },
+                          icon: FaIcon(
+                            FontAwesomeIcons.twitter,
                             color: Theme.of(context).backgroundColor,
                             size: 40,
                           ))
