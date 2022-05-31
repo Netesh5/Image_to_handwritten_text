@@ -57,6 +57,8 @@ class Imagepicker with ChangeNotifier {
       debugPrint(croppedImage.path);
       debugPrint(files.length.toString());
       notifyListeners();
+    } else {
+      return;
     }
   }
 }

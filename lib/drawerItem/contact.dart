@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:url_launcher/url_launcher.dart';
+
 import 'package:url_launcher/url_launcher_string.dart';
 
 class contactus extends StatefulWidget {
@@ -14,6 +14,10 @@ class _contactusState extends State<contactus> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).backgroundColor,
+        iconTheme: Theme.of(context).iconTheme,
+      ),
       body: SafeArea(
         child: Center(
           child: Padding(
@@ -139,7 +143,7 @@ class _contactusState extends State<contactus> {
                             FontAwesomeIcons.twitter,
                             color: Theme.of(context).backgroundColor,
                             size: 40,
-                          ))
+                          )),
                     ],
                   )
                 ],
