@@ -19,9 +19,7 @@ import 'package:provider/provider.dart';
 class scanedResult extends StatelessWidget {
   String text;
 
-  scanedResult({
-    required this.text,
-  });
+  scanedResult({required this.text});
 
   TextEditingController textEditingController = TextEditingController();
   int currentIndex = 0;
@@ -30,8 +28,10 @@ class scanedResult extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<String> texts = <String>[];
-    texts.add(text);
-    debugPrint("-------------");
+    // texts.add(text);
+    // debugPrint("-------------");
+    // print(texts);
+    // debugPrint("-------------");
 
     return WillPopScope(
       onWillPop: () async {
@@ -125,7 +125,7 @@ class scanedResult extends StatelessWidget {
                             maxLines: 28,
                             onChanged: (value) {
                               texts[index] = value;
-                              debugPrint(texts[index]);
+                              debugPrint(text[index]);
                             }),
                       ),
                     ),
