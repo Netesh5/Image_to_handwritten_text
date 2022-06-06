@@ -11,6 +11,7 @@ class Imagepicker with ChangeNotifier {
   List<File> files = [];
   String imagePath = "";
   String CroppedImagePath = "";
+
   Future imagePickerGallay(context) async {
     try {
       file = await ImagePicker().pickImage(
@@ -56,6 +57,7 @@ class Imagepicker with ChangeNotifier {
       files.add(File(croppedImage.path));
       debugPrint(croppedImage.path);
       debugPrint(files.length.toString());
+
       notifyListeners();
     } else {
       return;

@@ -15,6 +15,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  List<String> texts = <String>[];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -150,6 +151,7 @@ class _HomePageState extends State<HomePage> {
                   Provider.of<Imagepicker>(context, listen: false).imagePath,
                   context);
             }
+            texts.add(result);
             //debugPrint(
             //Provider.of<Imagepicker>(context, listen: false).imagePath);
             debugPrint(result);
@@ -157,9 +159,8 @@ class _HomePageState extends State<HomePage> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => scanedResult(
-                            text: result,
-                          )));
+                      builder: (context) =>
+                          scanedResult(text: result, texts: texts)));
             } else {
               return;
             }

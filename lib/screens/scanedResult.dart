@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:imagetotext/constants/alertdialog.dart';
 import 'package:imagetotext/provider/fontColorProvider.dart';
 import 'package:imagetotext/provider/fontSizeProvider.dart';
@@ -10,7 +9,6 @@ import 'package:imagetotext/provider/wordSpacingSlider.dart';
 import 'package:imagetotext/widgets/bottomNavbar.dart';
 import 'package:imagetotext/widgets/dropDownMenu.dart';
 import 'package:imagetotext/widgets/imagePicker.dart';
-
 import 'package:imagetotext/widgets/settingBottomSheet.dart';
 import 'package:pdf/pdf.dart';
 
@@ -18,8 +16,8 @@ import 'package:provider/provider.dart';
 
 class scanedResult extends StatelessWidget {
   String text;
-
-  scanedResult({required this.text});
+  List texts = [];
+  scanedResult({required this.text, required this.texts});
 
   TextEditingController textEditingController = TextEditingController();
   int currentIndex = 0;
@@ -27,16 +25,17 @@ class scanedResult extends StatelessWidget {
   // pdfGenerator generator = pdfGenerator();
   @override
   Widget build(BuildContext context) {
-    List<String> texts = <String>[];
-    // texts.add(text);
-    // debugPrint("-------------");
+    debugPrint("-------------");
+    debugPrint(texts.toString());
+
+    debugPrint("-------------");
     // print(texts);
     // debugPrint("-------------");
 
     return WillPopScope(
       onWillPop: () async {
         Provider.of<Imagepicker>(context, listen: false).files.length = 0;
-
+        texts.clear();
         return true;
       },
       child: Scaffold(
@@ -121,11 +120,12 @@ class scanedResult extends StatelessWidget {
                                 context,
                               ).currentColor,
                             ),
-                            initialValue: text,
+                            initialValue: texts[index],
                             maxLines: 28,
                             onChanged: (value) {
                               texts[index] = value;
                               debugPrint(text[index]);
+                              debugPrint(index.toString());
                             }),
                       ),
                     ),

@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 
 Widget drawer(context) {
   Auth auth = Auth();
+
   final user = Provider.of<User>(context, listen: false);
   return Drawer(
     backgroundColor: Theme.of(context).backgroundColor,
