@@ -123,7 +123,6 @@ class scanedResult extends StatelessWidget {
                               ).currentColor,
                             ),
                             initialValue: texts[index],
-                            maxLines: 28,
                             onChanged: (value) {
                               texts[index] = value;
                               debugPrint(text[index]);
