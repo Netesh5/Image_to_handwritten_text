@@ -9,6 +9,7 @@ import 'package:imagetotext/provider/letterSpacingSilder.dart';
 import 'package:imagetotext/provider/wordSpacingSlider.dart';
 import 'package:imagetotext/widgets/dropDownMenu.dart';
 import 'package:imagetotext/widgets/errorSnackBar.dart';
+import 'package:imagetotext/widgets/imagePicker.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
@@ -17,7 +18,7 @@ import 'package:provider/provider.dart';
 class pdfGenerator {
   final pdf = pw.Document();
 
-  createPdf(String text, BuildContext context) async {
+  createPdf(List text, BuildContext context) async {
     double? height =
         Provider.of<heightgapSlider>(context, listen: false).heightGap == 0
             ? null
@@ -67,22 +68,26 @@ class pdfGenerator {
           );
         });
 
-    pdf.addPage(pw.Page(
-        pageTheme: pagetheme,
-        build: (pw.Context context) {
-          return pw.Padding(
-            padding: const pw.EdgeInsets.only(left: 23, right: 0),
-            child: pw.Text(text,
-                style: pw.TextStyle(
-                  color: PdfColor.fromInt(fontColor.value),
-                  fontSize: fontsize,
-                  font: ttf,
-                  height: height,
-                  wordSpacing: wordspacing,
-                  letterSpacing: letterspacing,
-                )),
-          );
-        }));
+    for (var i = 0;
+        i < Provider.of<Imagepicker>(context, listen: false).files.length;
+        i++) {
+      pdf.addPage(pw.Page(
+          pageTheme: pagetheme,
+          build: (pw.Context context) {
+            return pw.Padding(
+              padding: const pw.EdgeInsets.only(left: 23, right: 0),
+              child: pw.Text(text[i],
+                  style: pw.TextStyle(
+                    color: PdfColor.fromInt(fontColor.value),
+                    fontSize: fontsize,
+                    font: ttf,
+                    height: height,
+                    wordSpacing: wordspacing,
+                    letterSpacing: letterspacing,
+                  )),
+            );
+          }));
+    }
   }
 
   savePdf(BuildContext context, String name) async {

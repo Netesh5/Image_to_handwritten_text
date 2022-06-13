@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:imagetotext/api/pdfgenerator.dart';
 
-alertDialog(BuildContext context, String text) {
+alertDialog(BuildContext context, List text) {
   String name = "";
   return showDialog(
     context: context,
@@ -31,6 +31,7 @@ alertDialog(BuildContext context, String text) {
         TextButton(
             onPressed: () async {
               pdfGenerator generator = pdfGenerator();
+
               await generator.createPdf(text, context);
               await generator.savePdf(context, name);
               Navigator.pop(context);

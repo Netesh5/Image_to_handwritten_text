@@ -58,11 +58,7 @@ class scanedResult extends StatelessWidget {
               ),
               IconButton(
                   onPressed: () {
-                    alertDialog(context, text);
-                    // generator.createPdf(text);
-                    // generator.savePdf(context);
-                    // generator.createPdf(text);
-                    // generator.savePdf(context);
+                    alertDialog(context, texts);
                   },
                   icon: const Icon(Icons.picture_as_pdf))
             ],
