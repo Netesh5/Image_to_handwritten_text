@@ -59,8 +59,9 @@ class pdfGenerator {
 
 //to create backgroundImages
     final pagetheme = pw.PageTheme(
-        pageFormat: PdfPageFormat.letter
-            .applyMargin(left: 0, top: 0, right: 0, bottom: 0),
+        margin:
+            const pw.EdgeInsets.only(bottom: 0, right: 0, left: 72, top: 72),
+        pageFormat: PdfPageFormat.letter,
         buildBackground: (pw.Context context) {
           return pw.FullPage(
             ignoreMargins: true,
@@ -75,7 +76,7 @@ class pdfGenerator {
           pageTheme: pagetheme,
           build: (pw.Context context) {
             return pw.Padding(
-              padding: const pw.EdgeInsets.only(left: 23, right: 0),
+              padding: const pw.EdgeInsets.only(left: 23, right: 0, bottom: 0),
               child: pw.Text(text[i],
                   style: pw.TextStyle(
                     color: PdfColor.fromInt(fontColor.value),
