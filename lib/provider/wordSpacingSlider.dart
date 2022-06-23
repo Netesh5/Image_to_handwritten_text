@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class wordSpacingSlider with ChangeNotifier {
   double wordSpacing = 0.0;
+  bool wordSlider = false;
   // ignore: non_constant_identifier_names
   WordSpacinggapSlider() {
     return Slider(
@@ -12,6 +13,7 @@ class wordSpacingSlider with ChangeNotifier {
         value: wordSpacing,
         onChanged: (value) {
           wordSpacing = value;
+          wordSlider = true;
           notifyListeners();
         });
   }

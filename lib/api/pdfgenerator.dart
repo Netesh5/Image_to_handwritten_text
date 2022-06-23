@@ -22,19 +22,22 @@ class pdfGenerator {
     double? height =
         Provider.of<heightgapSlider>(context, listen: false).heightGap == 0
             ? null
-            : Provider.of<heightgapSlider>(context, listen: false).heightGap;
+            : Provider.of<heightgapSlider>(context, listen: false).heightGap /
+                5.3;
     double? wordspacing = Provider.of<wordSpacingSlider>(context, listen: false)
                 .wordSpacing ==
             0.0
         ? null
-        : Provider.of<wordSpacingSlider>(context, listen: false).wordSpacing;
+        : Provider.of<wordSpacingSlider>(context, listen: false).wordSpacing /
+            3.3;
     double? letterspacing =
         Provider.of<letterSpacingSlider>(context, listen: false)
                     .letterspacing ==
                 0.0
             ? null
             : Provider.of<letterSpacingSlider>(context, listen: false)
-                .letterspacing;
+                    .letterspacing /
+                3.3;
     double? fontsize =
         Provider.of<fontSizeProvider>(context, listen: false).FontSize ?? 16.0;
     final fontFamily =

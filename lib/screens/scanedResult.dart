@@ -36,6 +36,8 @@ class scanedResult extends StatelessWidget {
       onWillPop: () async {
         Provider.of<Imagepicker>(context, listen: false).files.length = 0;
         texts.clear();
+        Provider.of<Imagepicker>(context, listen: false).imagePath = "";
+        Provider.of<Imagepicker>(context, listen: false).CroppedImagePath = "";
         return true;
       },
       child: Scaffold(
