@@ -114,6 +114,7 @@ class pdfGenerator {
       }
     } on PlatformException catch (e) {
       errorSnackbar(context, e.message.toString());
+      //error detection
     }
   }
 }
