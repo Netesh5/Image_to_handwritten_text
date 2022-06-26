@@ -111,6 +111,7 @@ class pdfGenerator {
         await file
             .writeAsBytes(await pdf.save())
             .then((value) => errorSnackbar(context, "File saved"));
+        //saving file
       }
     } on PlatformException catch (e) {
       errorSnackbar(context, e.message.toString());
